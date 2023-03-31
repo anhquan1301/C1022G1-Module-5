@@ -33,8 +33,8 @@ handleAddItem = () => {
       <div>
          <ul>
           {
-            this.state.list.map((item)=>(
-              <li>{item}</li>
+            this.state.list.map((item,index)=>(
+              <li key={index}>{item}</li>
             ))
           } 
          </ul>
