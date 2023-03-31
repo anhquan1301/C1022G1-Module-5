@@ -41,7 +41,7 @@ class StudentInfoComponent extends Component{
     render(){
         return(
             <div>
-                <h2 class="text-center text-danger">Danh sách sinh viên</h2>
+                <h2 className="text-center text-danger">Danh sách sinh viên</h2>
             <table className="table table-striped">
               <thead>
                 <tr>
