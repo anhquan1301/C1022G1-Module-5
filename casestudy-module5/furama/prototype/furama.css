@@ -14,7 +14,7 @@
     left: 0;
     right: 0;
     top: 0;
-    z-index: 1;
+    z-index: 100;
 }
 
 .register-hover:hover {
@@ -226,4 +226,9 @@
     text-align: center;
     margin-top: 100px;
     margin-bottom: 100px;
+}
+.text-footer{
+    font-size: larger;
+    text-decoration: none;
+    color: rgb(223, 235, 235);
 }
