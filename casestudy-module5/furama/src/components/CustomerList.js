@@ -2,19 +2,24 @@
 export default function CustomerList() {
   return (
     <>
-      <div className="row mx-0" style="margin-top: 96px;">
-        <img className="img-fluid px-0" style="height: 400px;"
+      <div classname="row mx-0" style={{ marginTop: 96 }}>
+        <img
+          classname="img-fluid px-0"
+          style={{ height: 400 }}
           src="https://blog.topcv.vn/wp-content/uploads/2017/11/ks.jpg"
-          alt="" />
+          alt=""
+        />
       </div>
       <div>
-        <h2 className="text-center fw-bold pt-4">Danh Sách Tất Cả Các Khách Hàng</h2>
+        <h2 classname="text-center fw-bold pt-4">
+          Danh Sách Tất Cả Các Khách Hàng
+        </h2>
       </div>
       <div>
-        <button className="ms-5 btn btn-dark">Thêm Khách Hàng Mới</button>
+        <button classname="ms-5 btn btn-dark">Thêm Khách Hàng Mới</button>
       </div>
-      <div className="row mx-0 mt-3 px-5 py-1">
-        <table className="table table-striped">
+      <div classname="row mx-0 mt-3 px-5 py-1">
+        <table classname="table table-striped">
           <thead>
             <tr>
               <th>STT</th>
@@ -26,8 +31,8 @@ export default function CustomerList() {
               <th>Email</th>
               <th>Loại khách</th>
               <th>Địa chỉ</th>
-              <th></th>
-              <th></th>
+              <th />
+              <th />
             </tr>
           </thead>
           <tbody>
@@ -41,9 +46,12 @@ export default function CustomerList() {
               <td>anhquan123@gmail.com</td>
               <td>Diamond</td>
               <td>123 Nguyễn Hoàng</td>
-              <td><button>Chỉnh sửa</button></td>
-              <td><button>Xóa</button></td>
-
+              <td>
+                <button>Chỉnh sửa</button>
+              </td>
+              <td>
+                <button>Xóa</button>
+              </td>
             </tr>
             <tr>
               <td scope="row">2</td>
@@ -55,8 +63,12 @@ export default function CustomerList() {
               <td>anhquan123@gmail.com</td>
               <td>Diamond</td>
               <td>123 Nguyễn Hoàng</td>
-              <td><button>Chỉnh sửa</button></td>
-              <td><button>Xóa</button></td>
+              <td>
+                <button>Chỉnh sửa</button>
+              </td>
+              <td>
+                <button>Xóa</button>
+              </td>
             </tr>
             <tr>
               <td scope="row">3</td>
@@ -68,8 +80,12 @@ export default function CustomerList() {
               <td>anhquan123@gmail.com</td>
               <td>Diamond</td>
               <td>123 Nguyễn Hoàng</td>
-              <td><button>Chỉnh sửa</button></td>
-              <td><button>Xóa</button></td>
+              <td>
+                <button>Chỉnh sửa</button>
+              </td>
+              <td>
+                <button>Xóa</button>
+              </td>
             </tr>
           </tbody>
         </table>
