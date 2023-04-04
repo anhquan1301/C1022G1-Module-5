@@ -123,6 +123,21 @@ export default function FacilityCreate() {
                                             />
                                         </td>
                                     </tr>
+                                    <tr style={{ height: 60 }}>
+                                        <th>
+                                            <label className="fs-5" htmlFor="">
+                                                Hình ảnh:
+                                            </label>
+                                        </th>
+                                        <td>
+                                            <input
+                                                type="text"
+                                                className="form-control "
+                                                name=""
+                                                placeholder="Nhập đường link hình ảnh"
+                                            />
+                                        </td>
+                                    </tr>
                                     <tr  style={ facility === 'Biệt thự' || facility === 'Căn hộ' ?
                                         { height: 60}:{display:'none'}}>
                                         <th>

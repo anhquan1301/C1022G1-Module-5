@@ -1,3 +1,5 @@
+import facilitiesList from "./facility";
+
 export default function FacilityList() {
     return (
         <>
@@ -14,96 +16,28 @@ export default function FacilityList() {
             </div>
             <div>
                 <button className="btn btn-dark" style={{ marginLeft: 130 }}>
-                    Thêm Phòng Mới
+                    Thêm Cơ Sở Mới
                 </button>
             </div>
             <div className="row mx-0 mt-3 py-1" style={{ padding: "0 100px" }}>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
+                {
+                    facilitiesList.map((facilities, index) => (
+                        <div className="col-4 d-flex justify-content-center pt-5 pb-5">
+                            <div className="card shadow" style={{ width: 380 }}>
+                                <img
+                                    src={facilities.img}
+                                    className="card-img-top"
+                                    alt="..."
+                                />
+                                <div className="card-body">
+                                    <h5 className="card-title">{facilities.name}</h5>
+                                    <p className="card-text">Diện tích phòng: {facilities.area} </p>
+                                    <button>Chỉnh sửa</button>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="row mx-0 mt-5 py-5" style={{ padding: "0 100px" }}>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
-                        </div>
-                    </div>
-                </div>
-                <div className="col-4 d-flex justify-content-center">
-                    <div className="card" style={{ width: 380 }}>
-                        <img
-                            src="https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg"
-                            className="card-img-top"
-                            alt="..."
-                        />
-                        <div className="card-body">
-                            <h5 className="card-title">PHÒNG SUITE HƯỚNG BIỂN</h5>
-                            <p className="card-text">Diện tích phòng: 85.8m2 </p>
-                            <button>Chỉnh sửa</button>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                }
             </div>
         </>
     )

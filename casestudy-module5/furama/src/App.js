@@ -1,13 +1,23 @@
 import'./index.css'
-import Header from './components/Header'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Footer from './components/Footer'
 import FacilityCreate from './components/FacilityCreate';
+import Home from './components/Home';
+import Header from './components/Header';
+import FacilityList from './components/FacilityList';
 function App() {
   return (
-    <>
-        <Header />
-        <FacilityCreate />
-        <Footer />
+    <>  
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Header />}  />
+            <Route path='/' element={<FacilityList />}  />
+            <Route path='/' element={<Footer />}  />
+          </Routes>
+        </BrowserRouter>
+        {/* <Header /> */}
+        {/* <FacilityList /> */}
+        {/* <Footer /> */}
     </>
   );
 }
