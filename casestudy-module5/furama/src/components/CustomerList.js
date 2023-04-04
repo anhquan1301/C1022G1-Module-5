@@ -2,24 +2,24 @@
 export default function CustomerList() {
   return (
     <>
-      <div classname="row mx-0" style={{ marginTop: 96 }}>
+      <div className="row mx-0" style={{ marginTop: 96 }}>
         <img
-          classname="img-fluid px-0"
+          className="img-fluid px-0"
           style={{ height: 400 }}
           src="https://blog.topcv.vn/wp-content/uploads/2017/11/ks.jpg"
           alt=""
         />
       </div>
       <div>
-        <h2 classname="text-center fw-bold pt-4">
+        <h2 className="text-center fw-bold pt-4">
           Danh Sách Tất Cả Các Khách Hàng
         </h2>
       </div>
       <div>
-        <button classname="ms-5 btn btn-dark">Thêm Khách Hàng Mới</button>
+        <button className="ms-5 btn btn-dark">Thêm Khách Hàng Mới</button>
       </div>
-      <div classname="row mx-0 mt-3 px-5 py-1">
-        <table classname="table table-striped">
+      <div className="row mx-0 mt-3 px-5 py-1">
+        <table className="table table-striped">
           <thead>
             <tr>
               <th>STT</th>

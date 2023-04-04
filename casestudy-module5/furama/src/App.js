@@ -1,10 +1,14 @@
-
-
+import'./index.css'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import FacilityCreate from './components/FacilityCreate';
 function App() {
   return (
-    <div>
-        
-    </div>
+    <>
+        <Header />
+        <FacilityCreate />
+        <Footer />
+    </>
   );
 }
 

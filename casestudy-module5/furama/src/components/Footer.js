@@ -1,15 +1,15 @@
 export default function Footer() {
   return (
-    <footer classname="container-fluid p-0" style={{ position: "relative" }}>
+    <footer className="container-fluid p-0" style={{ position: "relative" }}>
       <div
-        classname="text-white text-center text-lg-start"
+        className="text-white text-center text-lg-start"
         style={{ background: "rgb(128, 125, 125)" }}
       >
-        <div classname="container p-4">
-          <div classname="row mt-4 mx-0">
-            <div classname="col-lg-4 col-md-12 mb-4 mb-md-0">
+        <div className="container p-4">
+          <div className="row mt-4 mx-0">
+            <div className="col-lg-4 col-md-12 mb-4 mb-md-0">
               <h4
-                classname="text-uppercase mb-4"
+                className="text-uppercase mb-4"
                 style={{
                   color: "#cbbe73",
                   fontWeight: "bold",
@@ -26,24 +26,24 @@ export default function Footer() {
                 Tel.: 84-236-3847 333/888 * Fax: 84-236-3847 666 Email:
                 reservation@furamavietnam.com www.furamavietnam.com
               </p>
-              <div classname="mt-4">
+              <div className="mt-4">
                 <a>
-                  <i classname="ti-facebook fs-4 btn btn-dark" />
+                  <i className="ti-facebook fs-4 btn btn-dark" />
                 </a>
                 <a>
-                  <i classname="ti-youtube fs-4 btn btn-dark" />
+                  <i className="ti-youtube fs-4 btn btn-dark" />
                 </a>
                 <a>
-                  <i classname="ti-twitter fs-4 btn btn-dark" />
+                  <i className="ti-twitter fs-4 btn btn-dark" />
                 </a>
                 <a>
-                  <i classname="ti-instagram fs-4 btn btn-dark" />
+                  <i className="ti-instagram fs-4 btn btn-dark" />
                 </a>
               </div>
             </div>
-            <div classname="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
               <h4
-                classname="text-uppercase mb-4 pb-1"
+                className="text-uppercase mb-4 pb-1"
                 style={{
                   color: "#cbbe73",
                   fontWeight: "bold",
@@ -52,44 +52,44 @@ export default function Footer() {
               >
                 Email
               </h4>
-              <div classname="form-outline form-white mb-4">
+              <div className="form-outline form-white mb-4">
                 <input
                   type="text"
                   id="formControlLg"
-                  classname="form-control form-control-lg"
+                  className="form-control form-control-lg"
                   placeholder="Địa chỉ Email..."
                 />
               </div>
-              <ul classname="fa-ul">
-                <li classname="mb-3">
-                  <span classname="fa-li">
-                    <i classname="fas fa-home" />
+              <ul className="fa-ul">
+                <li className="mb-3">
+                  <span className="fa-li">
+                    <i className="fas fa-home" />
                   </span>
-                  <a href="" classname="ms-2 text-footer">
+                  <a href="" className="ms-2 text-footer">
                     Giá công bố
                   </a>
                 </li>
-                <li classname="mb-3">
-                  <span classname="fa-li">
-                    <i classname="fas fa-envelope" />
+                <li className="mb-3">
+                  <span className="fa-li">
+                    <i className="fas fa-envelope" />
                   </span>
-                  <a href="" classname="ms-2 text-footer">
+                  <a href="" className="ms-2 text-footer">
                     Tuyển dụng
                   </a>
                 </li>
-                <li classname="mb-3">
-                  <span classname="fa-li">
-                    <i classname="fas fa-phone" />
+                <li className="mb-3">
+                  <span className="fa-li">
+                    <i className="fas fa-phone" />
                   </span>
-                  <a href="" classname="ms-2 text-footer">
+                  <a href="" className="ms-2 text-footer">
                     Liên hệ
                   </a>
                 </li>
               </ul>
             </div>
-            <div classname="col-lg-4 col-md-6 mb-4 mb-md-0">
+            <div className="col-lg-4 col-md-6 mb-4 mb-md-0">
               <h4
-                classname="text-uppercase mb-4 "
+                className="text-uppercase mb-4 "
                 style={{
                   color: "#cbbe73",
                   fontWeight: "bold",
@@ -98,8 +98,8 @@ export default function Footer() {
               >
                 Giờ Mở Cửa
               </h4>
-              <table classname="table text-center text-white">
-                <tbody classname="fw-normal">
+              <table className="table text-center text-white">
+                <tbody className="fw-normal">
                   <tr>
                     <td>T2 - T5:</td>
                     <td>6:00 - 22:00</td>
@@ -122,11 +122,11 @@ export default function Footer() {
           </div>
         </div>
         <div
-          classname="text-center p-3"
+          className="text-center p-3"
           style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
         >
           © 2023
-          <a classname="text-white" href="https://codegym.vn/">
+          <a className="text-white" href="https://codegym.vn/">
             codegym.vn
           </a>
         </div>
