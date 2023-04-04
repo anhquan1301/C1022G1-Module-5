@@ -57,7 +57,7 @@ export default function ContactForm() {
                                         animationDuration="0.75"
                                         width="30"
                                         visible={true}
-                                    /> : <button type="submit" class="btn btn-primary">Submit</button>
+                                    /> : <button type="submit" className="btn btn-primary">Submit</button>
                             }
                             <ToastContainer />
                         </Form>
