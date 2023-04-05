@@ -13,7 +13,7 @@ export default function BookDetail(){
     const[books,setBooks]=useState({})
     useEffect(()=>{
         const fetchApi = async () => {
-            const rs = await bookService.detail(param)
+            const rs = await bookService.detail(param.id)
             setBooks(rs)
             console.log(books)
         }
@@ -30,7 +30,6 @@ export default function BookDetail(){
                 }
             }
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
                         const edit = async () => {
                             await bookService.edit(values)
                             setSubmitting(false)
@@ -38,7 +37,6 @@ export default function BookDetail(){
                             navigate('/')
                         }
                         edit()
-                    }, 300)
                 }}
             >
                 {( { isSubmitting } ) => (

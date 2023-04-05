@@ -16,16 +16,23 @@ export const save = async(book)=>{
     }
 }
 export const detail = async(id)=>{
-    console.log(id)
     try {
-        return (await axios.get(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/1`)).data
+        return (await axios.get(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${id}`)).data
     } catch (error) {
         console.log(error)
     }
 }
 export const edit = async(book)=>{
+    console.log(book)
     try {
-        return await axios.put(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/1`)
+        return await axios.put(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${book.id}`,{ ...book })
+    } catch (error) {
+        console.log(error)
+    }
+}
+export const remove = async(id)=>{
+    try {
+        return (await axios.delete(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${id}`))
     } catch (error) {
         console.log(error)
     }
