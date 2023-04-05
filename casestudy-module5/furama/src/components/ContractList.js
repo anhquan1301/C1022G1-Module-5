@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 export default function ContractList() {
     return (
         <>
@@ -13,7 +15,7 @@ export default function ContractList() {
                     <h2 className="text-center fw-bold pt-4">Danh Sách Tất Cả Các Hợp Đồng</h2>
                 </div>
                 <div>
-                    <button className="ms-5 btn btn-dark">Thêm Hợp Đồng Mới</button>
+                    <NavLink className="ms-5 btn btn-dark" to='/contract-create'>Thêm Hợp Đồng Mới</NavLink>
                 </div>
                 <div className="row mx-0 mt-3 px-5 py-1">
                     <table className="table table-striped">

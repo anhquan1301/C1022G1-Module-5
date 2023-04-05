@@ -33,12 +33,36 @@ export default function CustomerCreate() {
                         </label>
                       </th>
                       <td>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name=""
-                          placeholder="Nhập ngày sinh"
-                        />
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"                          />
+                          <label className="form-check-label" htmlFor="inlineRadio1">
+                            Nam
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio2"                          />
+                          <label className="form-check-label" htmlFor="inlineRadio2">
+                            Nữ
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio3"                          />
+                          <label className="form-check-label" htmlFor="inlineRadio3">
+                            LGTB
+                          </label>
+                        </div>
                       </td>
                     </tr>
                     <tr style={{ height: 60 }}>
@@ -103,12 +127,12 @@ export default function CustomerCreate() {
                     </tr>
                     <tr style={{ height: 60 }}>
                       <th>
-                        <label className="fs-5" htmlFor="">
+                        <label className="fs-5" htmlFor="floatingSelect">
                           Loại khách:
                         </label>
                       </th>
                       <td>
-                        <select name="" id="">
+                        <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
                           <option value="">Diamond</option>
                           <option value="">Platinium</option>
                           <option value="">Gold</option>

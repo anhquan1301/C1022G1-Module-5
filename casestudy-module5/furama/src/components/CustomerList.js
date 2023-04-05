@@ -1,5 +1,9 @@
+import { NavLink } from "react-router-dom";
+import customerList from './data/customer';
+import customerTypeList from './data/customerType';
 
 export default function CustomerList() {
+  let stt = 1
   return (
     <>
       <div className="row mx-0" style={{ marginTop: 96 }}>
@@ -16,7 +20,7 @@ export default function CustomerList() {
         </h2>
       </div>
       <div>
-        <button className="ms-5 btn btn-dark">Thêm Khách Hàng Mới</button>
+        <NavLink className="ms-5 btn btn-dark" to='/customer-create'>Thêm Khách Hàng Mới</NavLink>
       </div>
       <div className="row mx-0 mt-3 px-5 py-1">
         <table className="table table-striped">
@@ -36,57 +40,29 @@ export default function CustomerList() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td scope="row">1</td>
-              <td>Nguyễn Lê Anh Quân</td>
-              <td>13-01-2000</td>
-              <td>Nam</td>
-              <td>123123123</td>
-              <td>0909999999</td>
-              <td>anhquan123@gmail.com</td>
-              <td>Diamond</td>
-              <td>123 Nguyễn Hoàng</td>
-              <td>
-                <button>Chỉnh sửa</button>
-              </td>
-              <td>
-                <button>Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">2</td>
-              <td>Nguyễn Lê Anh Quân</td>
-              <td>13-01-2000</td>
-              <td>Nam</td>
-              <td>123123123</td>
-              <td>0909999999</td>
-              <td>anhquan123@gmail.com</td>
-              <td>Diamond</td>
-              <td>123 Nguyễn Hoàng</td>
-              <td>
-                <button>Chỉnh sửa</button>
-              </td>
-              <td>
-                <button>Xóa</button>
-              </td>
-            </tr>
-            <tr>
-              <td scope="row">3</td>
-              <td>Nguyễn Lê Anh Quân</td>
-              <td>13-01-2000</td>
-              <td>Nam</td>
-              <td>123123123</td>
-              <td>0909999999</td>
-              <td>anhquan123@gmail.com</td>
-              <td>Diamond</td>
-              <td>123 Nguyễn Hoàng</td>
-              <td>
-                <button>Chỉnh sửa</button>
-              </td>
-              <td>
-                <button>Xóa</button>
-              </td>
-            </tr>
+            {
+              customerList.map((customers, index) => (
+                <tr key={index}>
+                  <td scope="row">{stt++}</td>
+                  <td>{customers.name}</td>
+                  <td>{customers.dateOfBirth}</td>
+                  <td>{customers.gender == 1 ? 'Nam' : customers.gender==0 ? 'Nữ' : 'LGBT'}</td>
+                  <td>{customers.cmnd}</td>
+                  <td>{customers.phone}</td>
+                  <td>{customers.email}</td>
+                  <td>{customerTypeList.filter(customerId=>(
+                    customerId.id===customers.customerType
+                    ))[0].name}</td>
+                  <td>{customers.address}</td>
+                  <td>
+                    <button>Chỉnh sửa</button>
+                  </td>
+                  <td>
+                    <button>Xóa</button>
+                  </td>
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>

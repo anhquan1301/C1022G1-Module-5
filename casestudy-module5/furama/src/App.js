@@ -5,19 +5,27 @@ import FacilityCreate from './components/FacilityCreate';
 import Home from './components/Home';
 import Header from './components/Header';
 import FacilityList from './components/FacilityList';
+import ContractList from './components/ContractList';
+import CustomerList from './components/CustomerList';
+import CustomerCreate from './components/CustomerCreate';
+import ContractCreate from './components/ContractCreate';
 function App() {
   return (
     <>  
-        <BrowserRouter>
-          <Routes>
-            <Route path='/' element={<Header />}  />
-            <Route path='/' element={<FacilityList />}  />
-            <Route path='/' element={<Footer />}  />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+            <Route path='/' element={<Home  />}  />
+            <Route path='/facility-list' element={<FacilityList />}  />
+            <Route path='/customer-list' element={<CustomerList />}  />
+            <Route path='/contract-list' element={<ContractList />}  />
+            <Route path='/facility-create' element={<FacilityCreate />}  />
+            <Route path='/customer-create' element={<CustomerCreate />}  />
+            <Route path='/contract-create' element={<ContractCreate />}  />
           </Routes>
+        <Footer />
         </BrowserRouter>
-        {/* <Header /> */}
-        {/* <FacilityList /> */}
-        {/* <Footer /> */}
+        
     </>
   );
 }

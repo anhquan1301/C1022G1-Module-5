@@ -1,7 +1,7 @@
 import { useState } from "react";
+import facilitiesType from './data/facilityType';
 
 export default function FacilityCreate() {
-    let listFacility = ['Phòng', 'Biệt thự', 'Căn hộ']
     const [facility,setFacility] = useState('Phòng')
     console.log(facility)
     return (
@@ -31,12 +31,12 @@ export default function FacilityCreate() {
                         </button>
                         <ul className="dropdown-menu">
                             {
-                                listFacility.map((facilities,index) => (
+                                facilitiesType.map((facilities,index) => (
                                     <li>
-                                        <a key={index} className="dropdown-item" href="#" onClick={()=>{
-                                            setFacility(facilities)
+                                        <a key={index} className="dropdown-item" onClick={()=>{
+                                            setFacility(facilities.name)
                                         }}>
-                                            {facilities}
+                                            {facilities.name}
                                         </a>
                                     </li>
                                 )

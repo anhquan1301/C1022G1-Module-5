@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 export default function Header() {
   return (
     <header>
@@ -20,12 +21,12 @@ export default function Header() {
       </a>
       <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a
-            href="#"
+          <NavLink
+            to='/'
             className="nav-link fs-5 px-4 fw-bold text-dark text-hover"
           >
             Trang chủ
-          </a>
+          </NavLink>
         </li>
         <li>
           <a
@@ -71,19 +72,19 @@ export default function Header() {
           </a>
           <ul className="dropdown-menu" style={{ backgroundColor: "#fffafa" }}>
             <li>
-              <a className="dropdown-item" href="#">
+              <NavLink className="dropdown-item" to='/facility-list'>
                 Dịch vụ
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <NavLink className="dropdown-item" to='/customer-list'>
                 Khách hàng
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="dropdown-item" href="#">
+              <NavLink className="dropdown-item" to='/contract-list'>
                 Hợp đồng
-              </a>
+              </NavLink>
             </li>
           </ul>
         </li>
@@ -101,93 +102,6 @@ export default function Header() {
       </div>
     </div>
   </nav>
-  {/* <div style={{ marginTop: 96 }}>
-    
-    <div id="demo" className="carousel slide" data-bs-ride="carousel">
-     
-      <div className="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#demo"
-          data-bs-slide-to={0}
-          className="active"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to={1}></button >
-        <button type="button" data-bs-target="#demo" data-bs-slide-to={2}></button>
-      </div>
-
-      <div className="carousel-inner">
-        <div className="carousel-item active">
-          <img
-            src="https://phulong.com/UploadFiles/Images/LLN_PV_14_BeachPool.jpg"
-            alt=""
-            className="d-block"
-            style={{ width: "100%", height: 600 }}
-          />
-          <div className="carousel-caption">
-            <h2 className="text-slide text-start">KHU NGHỈ DƯỠNG ẨM THỰC </h2>
-            <h2 className="text-slide text-start">
-              TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG{" "}
-            </h2>
-            <h2 className="text-slide text-start">
-              MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI{" "}
-            </h2>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://cdn.azvd.asia/images/furama/draf2-m2.jpg"
-            alt=""
-            className="d-block"
-            style={{ width: "100%", height: 600 }}
-          />
-          <div className="carousel-caption">
-            <h2 className="text-slide text-start">KHU NGHỈ DƯỠNG ẨM THỰC </h2>
-            <h2 className="text-slide text-start">
-              TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG{" "}
-            </h2>
-            <h2 className="text-slide text-start">
-              MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI{" "}
-            </h2>
-          </div>
-        </div>
-        <div className="carousel-item">
-          <img
-            src="https://seaproperty.vn/upload/images/PhuQuoc-Furama-Resort-Spa/Furama-Resort-Spa-Phu-Quoc-4.jpg"
-            alt="New York"
-            className="d-block"
-            style={{ width: "100%", height: 600 }}
-          />
-          <div className="carousel-caption">
-            <h2 className="text-slide text-start">KHU NGHỈ DƯỠNG ẨM THỰC </h2>
-            <h2 className="text-slide text-start">
-              TỌA LẠC TẠI BÃI BIỂN ĐÀ NẴNG{" "}
-            </h2>
-            <h2 className="text-slide text-start">
-              MỘT TRONG 6 BÃI BIỂN ĐẸP NHẤT THẾ GIỚI{" "}
-            </h2>
-          </div>
-        </div>
-      </div>
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#demo"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" />
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#demo"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" />
-      </button>
-    </div>
-  </div> */}
 </header>
-
-
   )
 }
