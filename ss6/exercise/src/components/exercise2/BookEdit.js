@@ -26,9 +26,9 @@ export default function BookEdit(){
             <h2>Edit Book</h2>
             <Formik initialValues={
                 {   
-                    idEdit:books?.id,
-                    titleEdit: books?.title,
-                    quantityEdit: books?.quantity
+                    id:books?.id,
+                    title: books?.title,
+                    quantity: books?.quantity
                 }
             }
                 onSubmit={(value, { setSubmitting }) => {
@@ -46,7 +46,7 @@ export default function BookEdit(){
                          <Field
                                 type="hidden"
                                 className="form-control"
-                                name="idEdit"
+                                name="id"
                                 id=""
                                 aria-describedby="helpId"
                             />
@@ -55,7 +55,7 @@ export default function BookEdit(){
                             <Field
                                 type="text"
                                 className="form-control"
-                                name="titleEdit"
+                                name="title"
                                 id=""
                                 aria-describedby="helpId"
      
@@ -66,7 +66,7 @@ export default function BookEdit(){
                             <Field
                                 type="text"
                                 className="form-control"
-                                name="quantityEdit"
+                                name="quantity"
                                 id=""
                                 aria-describedby="helpId"
                             />
