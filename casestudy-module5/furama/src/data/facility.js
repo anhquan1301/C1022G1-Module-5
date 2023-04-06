@@ -1,6 +1,6 @@
-import facilitiesType from './facilityType';
+
 const facilitiesList = [{
-    id :'1',
+    id :1,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -13,10 +13,10 @@ const facilitiesList = [{
     poolArea:'30m2',
     numberFloors:'2',
     serviceFree:'massage',
-    facilityService:1
+    facilityService:[1,4]
 },
 {   
-    id :'2',
+    id :2,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -28,10 +28,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[2,4]
 },
 {   
-    id :'3',
+    id :3,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -43,10 +43,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[2,4]
 },
 {   
-    id :'4',
+    id :5,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -58,10 +58,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[1,2]
 },
 {   
-    id :'5',
+    id :6,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -73,10 +73,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[1,2]
 },
 {   
-    id :'6',
+    id :7,
     name: 'PHÒNG SUITE HƯỚNG BIỂN',
     area: '85.8m2',
     price: '2000',
@@ -88,10 +88,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[1,2]
 },
 {   
-    id :'7',
+    id :8,
     name: 'BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG',
     area: '85.8m2',
     price: '2000',
@@ -103,10 +103,10 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService:1
+    facilityService:[2,4]
 },
 {   
-    id :'8',
+    id :9,
     name: 'BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG',
     area: '85.8m2',
     price: '2000',
@@ -118,7 +118,7 @@ const facilitiesList = [{
     description:'abc',
     poolArea:'30m2',
     numberFloors:'2',
-    facilityService: 1
+    facilityService: [2,3]
 }
 ]
 export default facilitiesList

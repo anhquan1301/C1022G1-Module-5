@@ -1,3 +1,5 @@
+import customerTypeList from "../data/customerType";
+
 export default function CustomerCreate() {
   return (
     <>
@@ -133,11 +135,13 @@ export default function CustomerCreate() {
                       </th>
                       <td>
                         <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option value="">Diamond</option>
-                          <option value="">Platinium</option>
-                          <option value="">Gold</option>
-                          <option value="">Silver</option>
-                          <option value="">Member</option>
+                          {
+                            customerTypeList.map((customerType)=>(
+                              <>
+                                <option value="">{customerType.name}</option>
+                              </>
+                            ))
+                          }
                         </select>
                       </td>
                     </tr>

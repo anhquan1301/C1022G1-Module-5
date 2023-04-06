@@ -1,4 +1,6 @@
 
+import customerList from '../data/customer';
+import facilitiesList from '../data/facility';
 export default function ContractCreate() {
     return (
         <>
@@ -26,6 +28,42 @@ export default function ContractCreate() {
                                                     placeholder="Nhập mã hợp đồng"
                                                 />
                                             </td>
+                                        </tr>
+                                        <tr style={{ height: 60 }}>
+                                            <th>
+                                                <label className="fs-5" htmlFor="">
+                                                    Tên khách hàng:
+                                                </label>
+                                            </th>
+                                            <td>
+                                            <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                {
+                                                    customerList.map((customers) => (
+                                                        <>
+                                                            <option value="">{customers.name}</option>
+                                                        </>
+                                                    ))
+                                                }
+                                            </select>
+                                        </td>
+                                        </tr>
+                                        <tr style={{ height: 60 }}>
+                                            <th>
+                                                <label className="fs-5" htmlFor="">
+                                                    Tên cơ sở dịch vụ:
+                                                </label>
+                                            </th>
+                                            <td>
+                                            <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                {
+                                                    facilitiesList.map((facilities) => (
+                                                        <>
+                                                            <option value="">{facilities.name}</option>
+                                                        </>
+                                                    ))
+                                                }
+                                            </select>
+                                        </td>
                                         </tr>
                                         <tr style={{ height: 60 }}>
                                             <th>

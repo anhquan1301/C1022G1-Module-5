@@ -1,0 +1,40 @@
+export const contractList = [{
+    id:1,
+    contractCode:"SV-1234",
+    customerInfo:1,
+    facilityInfo:2,
+    dateStart:"10-12-2022",
+    dateEnd:"13-01-2023",
+    price:"2000",
+    totalPrice:"10000"
+},
+{
+    id:2,
+    contractCode:"SV-2345",
+    customerInfo:1,
+    facilityInfo:3,
+    dateStart:"10-12-2022",
+    dateEnd:"13-01-2023",
+    price:"2000",
+    totalPrice:"10000"
+},
+{
+    id:3,
+    contractCode:"SV-3456",
+    customerInfo:2,
+    facilityInfo:1,
+    dateStart:"10-12-2022",
+    dateEnd:"13-01-2023",
+    price:"2000",
+    totalPrice:"10000"
+},{
+    id:4,
+    contractCode:"SV-1111",
+    customerInfo:3,
+    facilityInfo:2,
+    dateStart:"10-12-2022",
+    dateEnd:"13-01-2023",
+    price:"2000",
+    totalPrice:"10000"
+},
+] 

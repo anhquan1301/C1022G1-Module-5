@@ -1,8 +1,11 @@
 import { useState } from "react";
-import facilitiesType from './data/facilityType';
+import facilitiesType from '../data/facilityType';
+import { facilityStandard } from '../data/facilityStandard';
+import { facilityRentType } from '../data/facilityRentType';
+import { facilityService } from "../data/facilityService";
 
 export default function FacilityCreate() {
-    const [facility,setFacility] = useState('Phòng')
+    const [facility, setFacility] = useState('Phòng')
     console.log(facility)
     return (
         <>
@@ -12,13 +15,13 @@ export default function FacilityCreate() {
             >
                 <div className="col-5">
                     <div>
-                        <h2 className="text-center fw-bold mt-3" style={facility==='Phòng'  ? {} : {display:'none'}}>Thêm Phòng Mới</h2>
+                        <h2 className="text-center fw-bold mt-3" style={facility === 'Phòng' ? {} : { display: 'none' }}>Thêm Phòng Mới</h2>
                     </div>
                     <div>
-                        <h2 className="text-center fw-bold mt-3" style={facility==='Biệt thự'  ? {} : {display:'none'}}>Thêm Biệt Thự Mới</h2>
+                        <h2 className="text-center fw-bold mt-3" style={facility === 'Biệt thự' ? {} : { display: 'none' }}>Thêm Biệt Thự Mới</h2>
                     </div>
                     <div>
-                        <h2 className="text-center fw-bold mt-3" style={facility==='Căn hộ'  ? {} : {display:'none'}}>Thêm Căn Hộ Mới</h2>
+                        <h2 className="text-center fw-bold mt-3" style={facility === 'Căn hộ' ? {} : { display: 'none' }}>Thêm Căn Hộ Mới</h2>
                     </div>
                     <div className="dropdown text-center mt-3" style={{ paddingRight: 360 }}>
                         <button
@@ -31,9 +34,9 @@ export default function FacilityCreate() {
                         </button>
                         <ul className="dropdown-menu">
                             {
-                                facilitiesType.map((facilities,index) => (
+                                facilitiesType.map((facilities, index) => (
                                     <li>
-                                        <a key={index} className="dropdown-item" onClick={()=>{
+                                        <a key={index} className="dropdown-item" onClick={() => {
                                             setFacility(facilities.name)
                                         }}>
                                             {facilities.name}
@@ -96,7 +99,7 @@ export default function FacilityCreate() {
                                     <tr style={{ height: 60 }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
-                                                Số lượng người tối đa:
+                                                Số lượng người:
                                             </label>
                                         </th>
                                         <td>
@@ -115,12 +118,15 @@ export default function FacilityCreate() {
                                             </label>
                                         </th>
                                         <td>
-                                            <input
-                                                type="text"
-                                                className="form-control "
-                                                name=""
-                                                placeholder="Nhập kiểu thuê"
-                                            />
+                                            <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                {
+                                                    facilityRentType.map((facilityRentTypes) => (
+                                                        <>
+                                                            <option value="">{facilityRentTypes.name}</option>
+                                                        </>
+                                                    ))
+                                                }
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr style={{ height: 60 }}>
@@ -138,24 +144,27 @@ export default function FacilityCreate() {
                                             />
                                         </td>
                                     </tr>
-                                    <tr  style={ facility === 'Biệt thự' || facility === 'Căn hộ' ?
-                                        { height: 60}:{display:'none'}}>
+                                    <tr style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
+                                        { height: 60 } : { display: 'none' }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
                                                 Tiêu chuẩn phòng:
                                             </label>
                                         </th>
                                         <td>
-                                            <input
-                                                type="text"
-                                                className="form-control "
-                                                name=""
-                                                placeholder="Nhập tiêu chuẩn phòng"
-                                            />
+                                            <select name="" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                {
+                                                    facilityStandard.map((facilityStandards) => (
+                                                        <>
+                                                            <option value="">{facilityStandards.name}</option>
+                                                        </>
+                                                    ))
+                                                }
+                                            </select>
                                         </td>
                                     </tr>
-                                    <tr  style={ facility === 'Biệt thự' || facility === 'Căn hộ' ?
-                                        { height: 60}:{display:'none'}}>
+                                    <tr style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
+                                        { height: 60 } : { display: 'none' }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
                                                 Mô tả tiện nghi khác:
@@ -170,8 +179,8 @@ export default function FacilityCreate() {
                                             />
                                         </td>
                                     </tr>
-                                    <tr style={ facility === 'Biệt thự' ?
-                                        { height: 60}:{display:'none'}}>
+                                    <tr style={facility === 'Biệt thự' ?
+                                        { height: 60 } : { display: 'none' }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
                                                 Diện tích hồ bơi:
@@ -186,8 +195,8 @@ export default function FacilityCreate() {
                                             />
                                         </td>
                                     </tr>
-                                    <tr  style={ facility === 'Biệt thự' || facility === 'Căn hộ' ?
-                                        { height: 60}:{display:'none'}}>
+                                    <tr style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
+                                        { height: 60 } : { display: 'none' }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
                                                 Số tầng:
@@ -202,11 +211,11 @@ export default function FacilityCreate() {
                                             />
                                         </td>
                                     </tr>
-                                    <tr  style={ facility === 'Phòng' ?
-                                        { height: 60}:{display:'none'}}>
+                                    <tr style={facility === 'Phòng' ?
+                                        { height: 60 } : { display: 'none' }}>
                                         <th>
                                             <label className="fs-5" htmlFor="">
-                                                Dịch vụ miễn phí đi kèm:
+                                                Dịch vụ miễn phí:
                                             </label>
                                         </th>
                                         <td>
@@ -216,6 +225,24 @@ export default function FacilityCreate() {
                                                 name=""
                                                 placeholder="Nhập dịch vụ miễn phí đi kèm"
                                             />
+                                        </td>
+                                    </tr>
+                                    <tr style={{ height: 60 }}>
+                                        <th>
+                                            <label className="fs-5" htmlFor="">
+                                                Dịch vụ đi kèm:
+                                            </label>
+                                        </th>
+                                        <td>
+                                            <select multiple name="" className="form-select" id="floatingSelect" aria-label="Floating label select example" size={3}>
+                                                {
+                                                    facilityService.map((facilityServices) => (
+                                                        <>
+                                                            <option value="">{facilityServices.name}</option>
+                                                        </>
+                                                    ))
+                                                }
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr style={{ height: 120 }}>
