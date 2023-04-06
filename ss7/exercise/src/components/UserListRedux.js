@@ -1,12 +1,10 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { deleteUser, getAllUsers } from "../action/users";
-
-
-
+import { deleteUser, getAllUsers, showUser } from "../action/users";
 
 export default function UserListRedux() {
     const users = useSelector(state => state.users)
+    const showUsers = useSelector(state => state.show)
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllUsers())
@@ -15,8 +13,8 @@ export default function UserListRedux() {
     return (
         <>
             <h2>Users List</h2>
-            <button >Get User</button>
-            {
+            <button onClick={()=>dispatch(showUser())}>Get User</button>
+            { showUsers &&
                 <table className="table">
                     <thead>
                         <tr>

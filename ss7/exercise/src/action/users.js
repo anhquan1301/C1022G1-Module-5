@@ -1,6 +1,6 @@
 
 import userService from './../service/listService';
-import { DELETE_USER, GET_ALL_USERS } from './types';
+import { DELETE_USER, GET_ALL_USERS, SHOW_USER } from './types';
 
 export const getAllUsers=()=> async(dispatch)=>{
         try {
@@ -25,4 +25,11 @@ export const deleteUser = (id) => async(dispatch) => {
     } catch (error) {
         console.log(error)
     }
+}
+
+export const showUser = () => (dispatch) => {
+        dispatch({
+            type:SHOW_USER
+        })
+
 } 

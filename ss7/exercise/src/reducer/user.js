@@ -1,4 +1,4 @@
-import { DELETE_USER, GET_ALL_USERS } from "../action/types";
+import { DELETE_USER, GET_ALL_USERS, SHOW_USER } from "../action/types";
 
 
 const initialState = []
@@ -10,9 +10,21 @@ export const usersReducer = (user = initialState,action)=>{
         case GET_ALL_USERS:
             return payload
         case DELETE_USER:
-            return payload
-
+            return [...payload]
             default:
                 return user
     }
+}
+const initialStateShowUser = false
+export const showUsersReducer = (state = initialStateShowUser,action)=>{
+    const { type } = action;
+    let newState = state;
+    switch(type){
+        case SHOW_USER:
+            newState = !state
+            break;
+            default:
+                return state
+    }
+    return newState
 }
