@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import * as bookService from '../../service/exercise2/bookService'
 import 'bootstrap/dist/css/bootstrap.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { NavLink, useNavigate } from 'react-router-dom'
-import BookDelete from './BookDelete';
 export default function BookList() {
     const navigate = useNavigate()
     const [bookList, setBookList] = useState([])
@@ -14,7 +15,10 @@ export default function BookList() {
         fetchApi()
     }, [])
     let count = 1;
-
+    const handleDelete = async(id)=>{
+        await bookService.remove(id)
+        toast('Successfuly')
+    }
     const handleUpdate = (id) => {
         navigate(`/update/${id}`)
     }
@@ -39,13 +43,15 @@ export default function BookList() {
                                 <td scope="row">{count++}</td>
                                 <td>{books.title}</td>
                                 <td>{books.quantity}</td>
-                                <button type='button' className='btn btn-primary' onClick={() => handleUpdate(books.id)} >Edit</button>
+                                <button type='button' 
+                                className='btn btn-primary' 
+                                onClick={() => handleUpdate(books.id)} >Edit</button>
                                 <button
                                     type="button"
                                     className="btn btn-danger"
                                     data-bs-toggle="modal"
                                     data-bs-target="#exampleModal"
-                                   
+                                    onClick={() => handleDelete(books.id)}
                                 >Delete</button>
                             </tr>
                         ))

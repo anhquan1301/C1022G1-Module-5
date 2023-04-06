@@ -7,7 +7,7 @@ import { Field, Form, Formik } from 'formik';
 import { Oval } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom';
 
-export default function BookDetail(){
+export default function BookEdit(){
     let navigate = useNavigate()
     let param = useParams();
     const[books,setBooks]=useState()
@@ -15,7 +15,6 @@ export default function BookDetail(){
         const fetchApi = async () => {
             const rs = await bookService.detail(param.id)
             setBooks(rs)
-            console.log(books)
         }
         fetchApi()
     }, [])
@@ -33,7 +32,6 @@ export default function BookDetail(){
                 }
             }
                 onSubmit={(value, { setSubmitting }) => {
-                    console.log(value)
                         const edit = async () => {
                             await bookService.edit(value)
                             setSubmitting(false)
