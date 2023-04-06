@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 export default function BookDetail(){
     let navigate = useNavigate()
     let param = useParams();
-    const[books,setBooks]=useState({})
+    const[books,setBooks]=useState()
     useEffect(()=>{
         const fetchApi = async () => {
             const rs = await bookService.detail(param.id)
@@ -19,19 +19,23 @@ export default function BookDetail(){
         }
         fetchApi()
     }, [])
+    if(!books){
+        return null
+    }
     return(
         <>
             <h2>Edit Book</h2>
             <Formik initialValues={
                 {   
-                    id:'',
-                    title: '',
-                    quantity: ''
+                    idEdit:books?.id,
+                    titleEdit: books?.title,
+                    quantityEdit: books?.quantity
                 }
             }
-                onSubmit={(values, { setSubmitting }) => {
+                onSubmit={(value, { setSubmitting }) => {
+                    console.log(value)
                         const edit = async () => {
-                            await bookService.edit(values)
+                            await bookService.edit(value)
                             setSubmitting(false)
                             toast('Successfuly')
                             navigate('/')
@@ -44,22 +48,19 @@ export default function BookDetail(){
                          <Field
                                 type="hidden"
                                 className="form-control"
-                                name="id"
+                                name="idEdit"
                                 id=""
                                 aria-describedby="helpId"
-                                value={books.id}
-                                
                             />
                         <div className="form-group">
                             <label htmlFor="" >Title</label>
                             <Field
                                 type="text"
                                 className="form-control"
-                                name="title"
+                                name="titleEdit"
                                 id=""
                                 aria-describedby="helpId"
-                                value={books.title}
-                                
+     
                             />
                         </div>
                         <div className="form-group">
@@ -67,11 +68,9 @@ export default function BookDetail(){
                             <Field
                                 type="text"
                                 className="form-control"
-                                name="quantity"
+                                name="quantityEdit"
                                 id=""
                                 aria-describedby="helpId"
-                                value={books.quantity}
-                                
                             />
                         </div>
                         {isSubmitting ? 

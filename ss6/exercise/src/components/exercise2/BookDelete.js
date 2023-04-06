@@ -2,9 +2,10 @@
 
 
 export default function BookDelete() {
+
     return (
         <>
-                <div
+                {/* <div
                     className="modal fade"
                     id="exampleModal"
                     tabIndex={-1}
@@ -39,7 +40,7 @@ export default function BookDelete() {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
         </>
     )
 }

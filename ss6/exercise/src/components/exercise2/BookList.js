@@ -47,7 +47,6 @@ export default function BookList() {
                                     data-bs-target="#exampleModal"
                                    
                                 >Delete</button>
-                                <BookDelete />
                             </tr>
                         ))
                     }

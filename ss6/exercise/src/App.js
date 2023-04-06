@@ -5,6 +5,7 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom'
 import BookCreate from './components/exercise2/BookCreate';
 import Bookedit from './components/exercise2/BookEdit';
 import { ToastContainer } from 'react-toastify';
+import BookDelete from './components/exercise2/BookDelete';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
       <Routes>
           <Route path='/' element={<BookList />} />
+          <Route path='/' element={<BookDelete />} />
           <Route path='/book-create' element={<BookCreate />} />
           <Route path='/update/:id' element={<Bookedit />} />
       </Routes>

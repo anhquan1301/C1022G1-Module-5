@@ -25,7 +25,7 @@ export const detail = async(id)=>{
 export const edit = async(book)=>{
     console.log(book)
     try {
-        return await axios.put(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${book.id}`,{ ...book })
+        return await axios.put(`https://my-json-server.typicode.com/codegym-vn/mock-api-books/books/${book.idEdit}`)
     } catch (error) {
         console.log(error)
     }
