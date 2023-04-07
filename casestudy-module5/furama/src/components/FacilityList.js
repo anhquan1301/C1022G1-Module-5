@@ -1,9 +1,20 @@
 import { NavLink } from "react-router-dom";
-import facilitiesList from "./data/facility";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import * as facilities from '../service/facilityService'
+
 export default function FacilityList() {
     let listFacility = ['Phòng', 'Biệt thự', 'Căn hộ', 'Tất cả dịch vụ']
     const [facility, setFacility] = useState('')
+    const [facilitiesList, setFacilitiesList] = useState([])
+    useEffect(()=>{
+        const fecthApi = async()=>{
+            const rs = await facilities.findAll()
+            setFacilitiesList(rs)
+            console.log(rs)
+            console.log(facilitiesList)
+        }
+        fecthApi()
+    },[])
     return (
         <>
             <div className="row mx-0" style={{ marginTop: 96 }}>

@@ -1,0 +1,320 @@
+{
+    "facilitiesList":[{
+        "id" :1,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg",
+        "facilitiesType":1,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "serviceFree":"massage",
+        "facilityService":[1,4]
+    },
+    {   
+        "id" :2,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg",
+        "facilitiesType":2,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[2,4]
+    },
+    {   
+        "id" :3,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg",
+        "facilitiesType":3,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[2,4]
+    },
+    {   
+        "id" :5,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg",
+        "facilitiesType":2,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[1,2]
+    },
+    {   
+        "id" :6,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg",
+        "facilitiesType": 1,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[1,2]
+    },
+    {   
+        "id" :7,
+        "name": "PHÒNG SUITE HƯỚNG BIỂN",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg",
+        "facilitiesType": 1,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[1,2]
+    },
+    {   
+        "id" :8,
+        "name": "BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F.jpg",
+        "facilitiesType": 1,
+        "standard":1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService":[2,4]
+    },
+    {   
+        "id" :9,
+        "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
+        "area": "85.8m2",
+        "price": "2000",
+        "people": "4",
+        "rentType": "Tháng",
+        "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas.jpg",
+        "facilitiesType": 2,
+        "standard": 1,
+        "description":"abc",
+        "poolarea":"30m2",
+        "numberFloors":"2",
+        "facilityService": [2,3]
+    }
+    ],
+    "facilityService":[
+        {
+            "id": 1,
+            "name": "Massage"
+        },
+        {
+            "id": 2,
+            "name": "Karaoke"
+        },
+        {
+            "id": 3,
+            "name": "Thức ăn"
+        },
+        {
+            "id": 4,
+            "name": "Nước uống"
+        },
+        {
+            "id": 5,
+            "name": "Thuê xe di chuyển tham quan resort"
+        }
+    ],
+    "facilityRentType" : [
+        {
+          "id": 1,
+          "name": "Ngày"
+        },
+        {
+          "id": 2,
+          "name": "Tháng"
+        },
+        {
+          "id": 3,
+          "name": "Năm"
+        }
+      ],
+      "facilityStandard":[
+        {
+          "id": 1,
+          "name": "Suite"
+        },
+        {
+          "id": 2,
+          "name": "Deluxe"
+        },
+        {
+          "id": 3,
+          "name": "Superior"
+        }
+      ],
+      "facilitiesType":[
+        {
+          "id": 1,
+          "name": "Phòng"
+        },
+        {
+          "id": 2,
+          "name": "Biệt thự"
+        },
+        {
+          "id": 3,
+          "name": "Căn hộ"
+        }
+      ],
+      "customerList":[
+        {
+          "id": "1",
+          "name": "Nguyễn Lê Anh Quân",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 1,
+          "address": "253 Nguyễn Hoàng"
+        },
+        {
+          "id": "2",
+          "name": "Hà Nguyễn Thanh Phong",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 1,
+          "address": "253 Nguyễn Hoàng"
+        },
+        {
+          "id": "3",
+          "name": "Nguyễn Lê Anh Quân",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 2,
+          "address": "253 Nguyễn Hoàng"
+        },
+        {
+          "id": "4",
+          "name": "Nguyễn Lê Anh Quân",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 3,
+          "address": "253 Nguyễn Hoàng"
+        },
+        {
+          "id": "5",
+          "name": "Nguyễn Lê Anh Quân",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 1,
+          "address": "253 Nguyễn Hoàng"
+        },
+        {
+          "id": "6",
+          "name": "Nguyễn Lê Anh Quân",
+          "dateOfBirth": "13-01-2000",
+          "gender": "1",
+          "cmnd": "201322211",
+          "phone": "0909999999",
+          "email": "abc123@gmail.com",
+          "customerType": 2,
+          "address": "253 Nguyễn Hoàng"
+        }
+      ],
+      "customerTypeList":[
+        {
+          "id": 1,
+          "name": "Diamond"
+        },
+        {
+          "id": 2,
+          "name": "Platinium"
+        },
+        {
+          "id": 3,
+          "name": "Gold"
+        },
+        {
+          "id": 4,
+          "name": "Silver"
+        },
+        {
+          "id": 5,
+          "name": "Member"
+        }
+      ],
+      "contractList":[
+        {
+          "id": 1,
+          "contractCode": "SV-1234",
+          "customerInfo": 1,
+          "facilityInfo": 2,
+          "dateStart": "10-12-2022",
+          "dateEnd": "13-01-2023",
+          "price": "2000",
+          "totalPrice": "10000"
+        },
+        {
+          "id": 2,
+          "contractCode": "SV-2345",
+          "customerInfo": 1,
+          "facilityInfo": 3,
+          "dateStart": "10-12-2022",
+          "dateEnd": "13-01-2023",
+          "price": "2000",
+          "totalPrice": "10000"
+        },
+        {
+          "id": 3,
+          "contractCode": "SV-3456",
+          "customerInfo": 2,
+          "facilityInfo": 1,
+          "dateStart": "10-12-2022",
+          "dateEnd": "13-01-2023",
+          "price": "2000",
+          "totalPrice": "10000"
+        },
+        {
+          "id": 4,
+          "contractCode": "SV-1111",
+          "customerInfo": 3,
+          "facilityInfo": 2,
+          "dateStart": "10-12-2022",
+          "dateEnd": "13-01-2023",
+          "price": "2000",
+          "totalPrice": "10000"
+        }
+      ]
+}
