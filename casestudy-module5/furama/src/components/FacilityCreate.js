@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as facilitiesService from '../service/facilityService'
 import { toast } from "react-toastify";
@@ -62,25 +61,27 @@ export default function FacilityCreate() {
                 img: '',
                 people:'',
                 facilitiesType: 1,
-                standard: 1,
-                description: '',
-                poolarea: '',
-                numberFloors: '',
-                serviceFree: '',
+                standard: null,
+                description: null,
+                poolarea: null,
+                numberFloors: null,
+                serviceFree: null,
                 facilityService: []
             }}
 
                 validationSchema={Yup.object(
                     {
-                        name: Yup.string().required('Không được bỏ trống'),
+                        name: Yup.string().required('Không được bỏ trống')
+                        .matches(/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸ.,ẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉị.,ọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉ.,ịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/,'Không được chứa số và kí tự đặc biệt'),
+
                         area: Yup.string().required('Không được bỏ trống'),
                         price: Yup.string().required('Không được bỏ trống'),
                         img: Yup.string().required('Không được bỏ trống'),
                         people: Yup.string().required('Không được bỏ trống'),
-                        description: Yup.string().required('Không được bỏ trống'),
-                        poolarea: Yup.string().required('Không được bỏ trống'),
-                        numberFloors: Yup.string().required('Không được bỏ trống'),
-                        serviceFree: Yup.string().required('Không được bỏ trống'),
+                        // description: Yup.string().required('Không được bỏ trống'),
+                        // poolarea: Yup.string().required('Không được bỏ trống'),
+                        // numberFloors: Yup.string().required('Không được bỏ trống'),
+                        // serviceFree: Yup.string().required('Không được bỏ trống'),
                     }
                 )}
                 onSubmit={(value, { setSubmitting }) => {
@@ -294,13 +295,23 @@ export default function FacilityCreate() {
                                                         />
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                    <th></th>
-                                                    <ErrorMessage style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
-                                                    {} : { display: 'none' }} name="description" className="text-danger" component="span" />
-                                                </tr>
                                                 {
-                                                    facility=='Biệt thự' && <tr style={{ height: 60 }}>
+                                                    facility === 'Biệt thự' &&
+                                                    <tr>
+                                                    <th></th>
+                                                    <ErrorMessage name="description" className="text-danger" component="span" />
+                                                </tr>
+                                                }
+                                                {
+                                                    facility === 'Căn hộ' &&
+                                                    <tr>
+                                                    <th></th>
+                                                    <ErrorMessage name="description" className="text-danger" component="span" />
+                                                </tr>
+                                                }
+                                                {
+                                                    facility=='Biệt thự' && 
+                                                    <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">
                                                             Diện tích hồ bơi:
@@ -316,12 +327,13 @@ export default function FacilityCreate() {
                                                     </td>
                                                 </tr>
                                                 }
-                                                
-                                                <tr>
+                                                {
+                                                    facility === 'Biệt thự' &&
+                                                    <tr>
                                                     <th></th>
-                                                    <ErrorMessage style={facility === 'Biệt thự' ?
-                                                    {} : { display: 'none' }} name="poolarea" className="text-danger" component="span" />
+                                                    <ErrorMessage name="poolarea" className="text-danger" component="span" />
                                                 </tr>
+                                                }
                                                 <tr style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
                                                     { height: 60 } : { display: 'none' }}>
                                                     <th>
@@ -338,11 +350,21 @@ export default function FacilityCreate() {
                                                         />
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                {
+                                                    facility === 'Biệt thự' &&
+                                                    <tr>
                                                     <th></th>
-                                                    <ErrorMessage style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
-                                                    {} : { display: 'none' }} name="numberFloors" className="text-danger" component="span" />
+                                                    <ErrorMessage name="numberFloors" className="text-danger" component="span" />
                                                 </tr>
+                                                }
+                                                {
+                                                    facility === 'Căn hộ' &&
+                                                    <tr>
+                                                    <th></th>
+                                                    <ErrorMessage name="numberFloors" className="text-danger" component="span" />
+                                                </tr>
+                                                }
+                                               
                                                 <tr style={facility === 'Phòng' ?
                                                     { height: 60 } : { display: 'none' }}>
                                                     <th>
@@ -359,11 +381,14 @@ export default function FacilityCreate() {
                                                         />
                                                     </td>
                                                 </tr>
-                                                <tr>
+                                                {
+                                                    facility === 'Phòng' && 
+                                                    <tr>
                                                     <th></th>
-                                                    <ErrorMessage style={facility === 'Phòng' ?
-                                                    {} : { display: 'none' }} name="serviceFree" className="text-danger" component="span" />
+                                                    <ErrorMessage name="serviceFree" className="text-danger" component="span" />
                                                 </tr>
+                                                }
+                                                
                                                 <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">

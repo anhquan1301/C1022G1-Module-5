@@ -1,5 +1,4 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import customerTypeList from "../data/customerType";
 import * as customerList from '../service/customerService'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,6 +6,8 @@ import  * as Yup from 'yup'
 import { Oval } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+
+
 
 export default function CustomerCreate() {
   let navigate = useNavigate()
@@ -48,7 +49,7 @@ export default function CustomerCreate() {
           cmnd: Yup.string().required('Không được bỏ trống')
           .matches(/^[0-9]{9}$/,'Số CMND phải đúng 9 số'),
           phone: Yup.string().required('Không được bỏ trống')
-          .matches('^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$', 'SĐT phải đúng định dạng VD: 0905.XXX.XXX'),
+          .matches(/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/, 'SĐT phải đúng định dạng VD: 0905.XXX.XXX'),
           email: Yup.string().required('Không được bỏ trống')
           .email('Nhập đúng định dạng Email'),
           address: Yup.string().required('Không được bỏ trống'),

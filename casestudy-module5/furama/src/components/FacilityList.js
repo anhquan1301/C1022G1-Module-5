@@ -10,8 +10,6 @@ export default function FacilityList() {
         const fecthApi = async()=>{
             const rs = await facilities.findAll()
             setFacilitiesList(rs)
-            console.log(rs)
-            console.log(facilitiesList)
         }
         fecthApi()
     },[])
@@ -43,9 +41,9 @@ export default function FacilityList() {
                     </button>
                     <ul className="dropdown-menu">
                         {
-                            listFacility.map((facilities, index) => (
-                                <li>
-                                    <a key={index} className="dropdown-item" onClick={() => {
+                            listFacility.map((facilities,index) => (
+                                <li key={index}>
+                                    <a  className="dropdown-item" onClick={() => {
                                         setFacility(facilities)
                                     }}>
                                         {facilities}
@@ -59,9 +57,9 @@ export default function FacilityList() {
             </div>
             <div className="row mx-0 mt-3 py-1" style={{ padding: "0 100px" }}>
                 {
-                    facilitiesList.map((facilities, index) => (
-                            <div  className="col-4 d-flex justify-content-center" key={index}>
-                            <div className= "card shadow mb-5 mt-2" style={facilities.name.includes(facility.toUpperCase()) ? {} : facility==='Tất cả dịch vụ' ? {} : {display:'none'}}>
+                    facilitiesList.map((facilities) => (
+                            <div  className="col-4 d-flex justify-content-center" key={facilities.id}>
+                            <div className= "card shadow mb-5 mt-2" style={facilities.name.includes(facility.toUpperCase()) ? {width:380, height: 400} : facility==='Tất cả dịch vụ' ? {} : {display:'none'}}>
                                 <img
                                     src={facilities.img}
                                     className="card-img-top w-100 h-100"
@@ -70,7 +68,7 @@ export default function FacilityList() {
                                 <div className="card-body">
                                     <h5 className="card-title">{facilities.name}</h5>
                                     <p className="card-text">Diện tích phòng: {facilities.area} </p>
-                                    <button className="btn btn-primary"><i className="ti-pencil-alt"></i></button>
+                                    <NavLink to={`/facility-edit/${facilities.id}`} className="btn btn-primary"><i className="ti-pencil-alt"></i></NavLink>
                                     <button className="btn btn-danger ms-2"><i className="ti-trash"></i></button>
                                     <button className="float-end btn"><i className="ti-info fs-3 fw-bold"></i></button>
                                     

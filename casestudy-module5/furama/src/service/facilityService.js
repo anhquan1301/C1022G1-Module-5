@@ -14,6 +14,21 @@ export const save = async(facility)=>{
         
     }
 }
+export const findById = async(id) =>{
+    try {
+        return (await axios.get(`http://localhost:8080/facilitiesList/${id}`)).data
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export const update = async(facility)=>{
+    try {
+        await axios.put(`http://localhost:8080/facilitiesList/${facility.id}`,{ ...facility })
+    } catch (error) {
+        
+    }
+}
 export const getFacilitiesType = async() =>{
     try {
         return (await axios.get('http://localhost:8080/facilitiesType')).data

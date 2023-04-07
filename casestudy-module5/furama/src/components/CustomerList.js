@@ -100,7 +100,7 @@ export default function CustomerList() {
                     ))[0].name}</td>
                   <td>{customer.address}</td>
                   <td>
-                    <button>Chỉnh sửa</button>
+                    <NavLink className="btn btn-primary" to={`/customer-edit/${customer.id}`}>Chỉnh sửa</NavLink>
                   </td>
                   <td>
                     <button>Xóa</button>

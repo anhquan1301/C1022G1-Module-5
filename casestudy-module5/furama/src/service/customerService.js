@@ -15,6 +15,21 @@ export const save = async(customer)=>{
     }
 }
 
+export const update = async(customer)=>{
+    try {
+        await axios.put(`http://localhost:8080/customerList/${customer.id}`,{ ...customer })
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const findById = async(id)=>{
+    try {
+        return (await axios.get(`http://localhost:8080/customerList/${id}`)).data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const customerTypeList = async()=>{
     try {
         return (await axios.get(`http://localhost:8080/customerTypeList`)).data
