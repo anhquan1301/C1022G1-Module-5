@@ -2,10 +2,22 @@ import axios from "axios";
 export const findByName = async(value)=>{
     console.log(value)
     try {
-        const response = await axios.get(`http://localhost:8080/customerList`)
-        const data = response.data;
-        const findName = data.filter(customer => customer.name.includes(value));
-        return findName;
+        return (await axios.get(`http://localhost:8080/customerList?name_like=${value}`)).data
+    } catch (error) {
+        console.log(error);
+    }
+}
+export const save = async(customer)=>{
+    try {
+        await axios.post(`http://localhost:8080/customerList`,{ ...customer })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const customerTypeList = async()=>{
+    try {
+        return (await axios.get(`http://localhost:8080/customerTypeList`)).data
     } catch (error) {
         console.log(error);
     }

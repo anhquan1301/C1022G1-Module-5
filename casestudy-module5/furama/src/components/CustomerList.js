@@ -1,10 +1,17 @@
 import { NavLink } from "react-router-dom";
-import customerTypeList from '../data/customerType';
 import { Field, Form, Formik } from "formik";
 import { toast } from "react-toastify";
 import * as customerList from '../service/customerService'
 import { useEffect, useState } from "react";
 export default function CustomerList() {
+  const [customerTypeList, setCustomerTypeList] = useState([])
+  useEffect(()=>{
+    const fetchApi = async()=>{
+      const rs = await customerList.customerTypeList()
+      setCustomerTypeList(rs)
+    }
+    fetchApi()
+  },[])
   const [customers, setCustomers] = useState([])
   useEffect(()=>{
     const fetchApi = async()=>{
@@ -39,12 +46,17 @@ export default function CustomerList() {
          onSubmit={(value)=>{
             const search = async()=>{
               const rs = await customerList.findByName(value.name)
+              if(rs==""){
+                document.getElementById("empty").innerHTML=`Không Tìm Thấy Tên ${value.name}`
+              }else{
+                document.getElementById("empty").innerHTML=``
+              }
               setCustomers(rs)
-              console.log(customers)
             }
             search()
          }}
         >
+          
           <Form>
             <div className="form-group">
               <Field type="text"
@@ -55,7 +67,7 @@ export default function CustomerList() {
         </Formik>
       </div>
       <div className="row mx-0 mt-3 px-5 py-1">
-        <table className="table table-striped">
+        <table className="table table-striped" style={customers=='' ?  { display : 'none'} : {} }>
           <thead>
             <tr>
               <th>STT</th>
@@ -71,6 +83,7 @@ export default function CustomerList() {
               <th />
             </tr>
           </thead>
+          
           <tbody>
             {
               customers.map((customer, index) => (
@@ -97,6 +110,7 @@ export default function CustomerList() {
             }
           </tbody>
         </table>
+        <div><h4 id="empty" className="text-danger text-center"></h4></div>
       </div>
     </>
   )

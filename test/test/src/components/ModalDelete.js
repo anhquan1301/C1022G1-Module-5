@@ -1,10 +1,14 @@
 import * as bookList from '../service/bookService'
 export default function ModalDelete(props) {
     const handleDelete=(id)=>{
-        bookList.remove(id).then(()=> {
+        // bookList.remove(id).then(()=> {
+        //     props.getList()
+        // })
+        const fetchApi = async () => {
+            await bookList.remove(id)
             props.getList()
-        })
-       
+        }
+        fetchApi()
     }
     return (
         <>
