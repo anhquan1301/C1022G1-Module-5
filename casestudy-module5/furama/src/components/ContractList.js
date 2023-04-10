@@ -34,14 +34,14 @@ export default function ContractList() {
 
     useEffect(() => {
         const showListCustomer = async () => {
-            const rs = await customer.findByName("")
+            const rs = await customer.getTotalPage()
             setCustomerList(rs)
         }
         showListCustomer()
     }, [])
     useEffect(() => {
         const showListFacilities = async () => {
-            const rs = await facilitiesLists.findAll("")
+            const rs = await facilitiesLists.getTotalPages()
             setFacilitiesList(rs)
         }
         showListFacilities()
@@ -79,6 +79,7 @@ export default function ContractList() {
             <div>
                 <h2 className="text-center fw-bold pt-4">Danh Sách Tất Cả Các Hợp Đồng</h2>
             </div>
+            <div className='container'>
             <div className='row px-0'>
                 <div className='col-6 float-start'>
                     <NavLink className="ms-5 btn btn-dark" to='/contract-create'>Thêm Hợp Đồng Mới</NavLink>
@@ -107,7 +108,7 @@ export default function ContractList() {
                             }}>
                                 <Field type="text"
                                     className="form-control d-inline float-start me-3 rounded-pill" style={{
-                                        width: 300
+                                        width: 230
                                     }} name="contractCode" aria-describedby="helpId" placeholder="Tìm kiếm..." />
                                 <button type="submit" className="btn btn-secondary float-start rounded-pill">Tìm kiếm</button>
                             </div>
@@ -128,9 +129,8 @@ export default function ContractList() {
                             <th>Tên dịch vụ</th>
                             <th>Ngày bắt đầu</th>
                             <th>Ngày kết thúc</th>
-
-                            <th>Số tiền cọc trước</th>
-                            <th>Tổng số tiền thanh toán</th>
+                            <th>Tiền cọc trước</th>
+                            <th>Tổng tiền thanh toán</th>
                             <th />
                             <th />
                         </tr>
@@ -195,6 +195,7 @@ export default function ContractList() {
                 }}
                 />
                 <div><h4 id="empty" className="text-danger text-center"></h4></div>
+            </div>
             </div>
         </>
     )

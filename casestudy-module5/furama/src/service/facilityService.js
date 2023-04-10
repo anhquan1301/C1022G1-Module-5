@@ -1,7 +1,7 @@
 import axios from 'axios';
-export const findAll = async(value,currentPage,limit) =>{
+export const findAll = async(value,currentPage) =>{
     try {
-        return (await axios.get(`http://localhost:8080/facilitiesList?name_like=${value}&_page=${currentPage}&_limit=6`)).data
+        return (await axios.get(`http://localhost:8080/facilitiesList?name_like=${value}&_page=${currentPage}&_limit=6&_sort=id&_order=desc`)).data
     } catch (error) {
         console.log(error)
     }

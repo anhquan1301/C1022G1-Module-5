@@ -63,6 +63,7 @@ export default function CustomerList() {
           Danh Sách Tất Cả Các Khách Hàng
         </h2>
       </div>
+      <div className="container">
       <div className="row-0 px-0 ">
       <div className="col-6 float-start">
         <NavLink className="ms-5 btn btn-dark" to='/customer-create'>Thêm Khách Hàng Mới</NavLink>
@@ -90,7 +91,7 @@ export default function CustomerList() {
             }}>
               <Field type="text"
                 className="form-control d-inline float-start me-3 rounded-pill" style={{
-                  width: 300
+                  width: 250
                 }} name="name" aria-describedby="helpId" placeholder="Tìm kiếm..." />
               <button type="submit" className="btn btn-secondary float-start rounded-pill">Tìm kiếm</button>
             </div>
@@ -117,7 +118,6 @@ export default function CustomerList() {
               <th />
             </tr>
           </thead>
-
           <tbody>
             {
               customers.map((customer, index) => (
@@ -187,6 +187,7 @@ export default function CustomerList() {
           }
         />
         <div><h4 id="empty" className="text-danger text-center"></h4></div>
+      </div>
       </div>
     </>
   )

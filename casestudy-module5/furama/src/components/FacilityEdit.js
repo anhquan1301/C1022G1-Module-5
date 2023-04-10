@@ -10,8 +10,8 @@ import { Oval } from "react-loader-spinner";
 
 export default function FacilityEdit() {
 
-    
-    
+
+
     const [facilitiesType, setFacilitiesType] = useState([])
     const [facilityStandard, setFacilityStandard] = useState([])
     const [facilityRentType, setFacilityRentType] = useState([])
@@ -29,30 +29,29 @@ export default function FacilityEdit() {
     // getfacilityDetail()
 
 
-    useEffect(()=>{
-    const getfacilityService = async () => {
-        const rs = await facilitiesService.getFacilityService()
-        setFacilityService(rs)
-    }
-    getfacilityService()
-    },[])
+    useEffect(() => {
+        const getfacilityService = async () => {
+            const rs = await facilitiesService.getFacilityService()
+            setFacilityService(rs)
+        }
+        getfacilityService()
+    }, [])
     useEffect(() => {
         const fetchAll = async () => {
-            const [facilityTypesData, facilityDetail] =  await Promise.all(
+            const [facilityTypesData, facilityDetail] = await Promise.all(
                 [
                     facilitiesService.getFacilitiesType(),
                     facilitiesService.findById(params.id)
                 ]
             );
-
             setFacilitiesType(facilityTypesData)
             setDetail(facilityDetail)
             setFacility(facilityTypesData.filter(ft => ft.id === facilityDetail.facilitiesType)[0]?.name);
         }
-        fetchAll();  
+        fetchAll();
     }, [params.id])
 
-    
+
     useEffect(() => {
         const getfacilityStandard = async () => {
             const rs = await facilitiesService.getFacilitiesStandard()
@@ -62,7 +61,7 @@ export default function FacilityEdit() {
     }, [])
 
 
-    
+
     useEffect(() => {
         const getfacilityRentType = async () => {
             const rs = await facilitiesService.getFacilitiesRentType()
@@ -70,28 +69,28 @@ export default function FacilityEdit() {
         }
         getfacilityRentType()
     }, [])
-    
-    
+
+
     let navigate = useNavigate()
 
-    if(!facilitiesType){
+    if (!facilitiesType) {
         return null
     }
 
-    if(!detail){
+    if (!detail) {
         return null
     }
     return (
 
         <>
             <Formik initialValues={{
-                id:detail?.id,
+                id: detail?.id,
                 name: detail?.name,
                 area: detail?.area,
                 price: detail?.price,
                 rentType: detail?.rentType,
                 img: detail?.img,
-                people:detail?.people,
+                people: detail?.people,
                 facilitiesType: detail?.facilitiesType,
                 standard: detail?.standard,
                 description: detail?.description,
@@ -103,17 +102,15 @@ export default function FacilityEdit() {
 
                 validationSchema={Yup.object(
                     {
-                        name: Yup.string().required('Không được bỏ trống')
-                        .matches(/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸ.,ẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉị.,ọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉ.,ịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/,'Không được chứa số và kí tự đặc biệt'),
-
+                        name: Yup.string().required('Không được bỏ trống'),
                         area: Yup.string().required('Không được bỏ trống'),
                         price: Yup.string().required('Không được bỏ trống'),
                         img: Yup.string().required('Không được bỏ trống'),
                         people: Yup.string().required('Không được bỏ trống'),
-                        description: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
-                        poolarea: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống'),
-                        numberFloors: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
-                        serviceFree: facility=='Phòng' && Yup.string().required('Không được bỏ trống'),
+                        description: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống') || facility == 'Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        poolarea: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống'),
+                        numberFloors: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống') || facility == 'Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        serviceFree: facility == 'Phòng' && Yup.string().required('Không được bỏ trống'),
                     }
                 )}
                 onSubmit={(value, { setSubmitting }) => {
@@ -134,28 +131,28 @@ export default function FacilityEdit() {
                                 style={{ marginTop: 96, backgroundColor: "rgb(232, 235, 219)" }}>
                                 <div className="col-5">
                                     {
-                                    facility === 'Phòng' 
-                                    &&  
-                                    <div>
-                                        <h2 className="text-center fw-bold mt-3" >Chỉnh Sửa Thông Tin Phòng</h2>
-                                    </div>
+                                        facility === 'Phòng'
+                                        &&
+                                        <div>
+                                            <h2 className="text-center fw-bold mt-3" >Chỉnh Sửa Thông Tin Phòng</h2>
+                                        </div>
                                     }
 
                                     {
-                                    facility === 'Biệt thự' 
-                                    &&  
-                                    <div>
-                                    <h2 className="text-center fw-bold mt-3">Chỉnh Sửa Thông Tin Biệt Thự</h2>
-                                    </div>
+                                        facility === 'Biệt thự'
+                                        &&
+                                        <div>
+                                            <h2 className="text-center fw-bold mt-3">Chỉnh Sửa Thông Tin Biệt Thự</h2>
+                                        </div>
                                     }
                                     {
-                                    facility === 'Căn hộ' 
-                                    &&  
-                                    <div>
-                                        <h2 className="text-center fw-bold mt-3">Chỉnh Sửa Thông Tin Căn Hộ</h2>
-                                    </div>
+                                        facility === 'Căn hộ'
+                                        &&
+                                        <div>
+                                            <h2 className="text-center fw-bold mt-3">Chỉnh Sửa Thông Tin Căn Hộ</h2>
+                                        </div>
                                     }
-                                    
+
                                     <div className="dropdown text-center mt-3" style={{ paddingRight: 410 }}>
                                         <button
                                             className="btn btn-secondary dropdown-toggle"
@@ -199,8 +196,10 @@ export default function FacilityEdit() {
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="name" className="text-danger" component="span" />
+                                                    <td> </td>
+                                                    <td>
+                                                        <ErrorMessage name="name" className="text-danger" component="span" />
+                                                    </td>
                                                 </tr>
                                                 {/* <tr style={{ height: 60 }}>
                                                     <th>
@@ -290,7 +289,7 @@ export default function FacilityEdit() {
                                                                 facilityRentType.map((facilityRentTypes) => (
                                                                     <option key={facilityRentTypes.id} value={facilityRentTypes.id}>{facilityRentTypes.name}</option>
                                                                 ))
-                                                                
+
                                                             }
                                                         </Field>
                                                     </td>
@@ -339,7 +338,7 @@ export default function FacilityEdit() {
                                                         </label>
                                                     </th>
                                                     <td>
-                                                        <Field 
+                                                        <Field
                                                             type="text"
                                                             className="form-control "
                                                             name="description"
@@ -350,41 +349,41 @@ export default function FacilityEdit() {
                                                 {
                                                     facility === 'Biệt thự' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="description" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="description" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
                                                 {
                                                     facility === 'Căn hộ' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="description" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="description" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
                                                 {
-                                                    facility=='Biệt thự' && 
+                                                    facility == 'Biệt thự' &&
                                                     <tr style={{ height: 60 }}>
-                                                    <th>
-                                                        <label className="fs-5" htmlFor="">
-                                                            Diện tích hồ bơi:
-                                                        </label>
-                                                    </th>
-                                                    <td>
-                                                        <Field
-                                                            type="text"
-                                                            className="form-control "
-                                                            name="poolarea"
-                                                            placeholder="Nhập diện tích hồ bơi"
-                                                        />
-                                                    </td>
-                                                </tr>
+                                                        <th>
+                                                            <label className="fs-5" htmlFor="">
+                                                                Diện tích hồ bơi:
+                                                            </label>
+                                                        </th>
+                                                        <td>
+                                                            <Field
+                                                                type="text"
+                                                                className="form-control "
+                                                                name="poolarea"
+                                                                placeholder="Nhập diện tích hồ bơi"
+                                                            />
+                                                        </td>
+                                                    </tr>
                                                 }
                                                 {
                                                     facility === 'Biệt thự' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="poolarea" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="poolarea" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
                                                 <tr style={facility === 'Biệt thự' || facility === 'Căn hộ' ?
                                                     { height: 60 } : { display: 'none' }}>
@@ -405,18 +404,18 @@ export default function FacilityEdit() {
                                                 {
                                                     facility === 'Biệt thự' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="numberFloors" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="numberFloors" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
                                                 {
                                                     facility === 'Căn hộ' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="numberFloors" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="numberFloors" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
-                                               
+
                                                 <tr style={facility === 'Phòng' ?
                                                     { height: 60 } : { display: 'none' }}>
                                                     <th>
@@ -434,13 +433,13 @@ export default function FacilityEdit() {
                                                     </td>
                                                 </tr>
                                                 {
-                                                    facility === 'Phòng' && 
+                                                    facility === 'Phòng' &&
                                                     <tr>
-                                                    <th></th>
-                                                    <ErrorMessage name="serviceFree" className="text-danger" component="span" />
-                                                </tr>
+                                                        <th></th>
+                                                        <ErrorMessage name="serviceFree" className="text-danger" component="span" />
+                                                    </tr>
                                                 }
-                                                
+
                                                 <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">

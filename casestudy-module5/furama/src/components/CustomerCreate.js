@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
-
+  
 export default function CustomerCreate() {
   let navigate = useNavigate()
   const [customerTypeList, setCustomerTypeList] = useState([])
@@ -29,7 +29,7 @@ export default function CustomerCreate() {
         cmnd: '',
         phone: '',
         email: '',
-        customerType: 1,
+        customerType: customerTypeList[0]?.name,
         address: ''
       }}
         onSubmit={(values, { setSubmitting }) => {
@@ -42,8 +42,7 @@ export default function CustomerCreate() {
           create()
         }}
         validationSchema={Yup.object({
-          name: Yup.string().required('Không được bỏ trống')
-          .matches(/^(([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸ.,ẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\s\'ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉị.,ọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]*)([a-zA-Z\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉ.,ịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]))*$/,'Nhập đúng định dạng tên VD: Nguyễn Lê Anh Quân'),
+          name: Yup.string().required('Không được bỏ trống'),
           gender: Yup.string().required('Không được bỏ trống'),
           dateOfBirth: Yup.string().required('Không được bỏ trống'),
           cmnd: Yup.string().required('Không được bỏ trống')
@@ -84,7 +83,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="name" className="text-danger" component="span" />
+                            <th><ErrorMessage name="name" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -133,7 +132,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="gender" className="text-danger" component="span" />
+                            <th><ErrorMessage name="gender" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -152,7 +151,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="dateOfBirth" className="text-danger" component="span" />
+                            <th><ErrorMessage name="dateOfBirth" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -171,7 +170,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="cmnd" className="text-danger" component="span" />
+                            <th><ErrorMessage name="cmnd" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -190,7 +189,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="phone" className="text-danger" component="span" />
+                            <th><ErrorMessage name="phone" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -209,7 +208,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="email" className="text-danger" component="span" />
+                            <th><ErrorMessage name="email" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -248,7 +247,7 @@ export default function CustomerCreate() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="address" className="text-danger" component="span" />
+                            <th><ErrorMessage name="address" className="text-danger" component="span" /></th>
                             </tr>
                           {
                             isSubmitting ? <Oval

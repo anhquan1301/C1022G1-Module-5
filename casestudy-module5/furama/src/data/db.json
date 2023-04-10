@@ -78,7 +78,7 @@
     },
     {
       "id": 7,
-      "name": "PHÒNG SUITE HƯỚNG BIỂN",
+      "name": "PHÒNG DELUXE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
       "rentType": 2,
@@ -137,9 +137,9 @@
     },
     {
       "id": 10,
-      "name": "PHÒNG DELUXE",
+      "name": "PHÒNG DELUXE HƯỚNG BIỂN",
       "area": "100m2",
-      "price": "200",
+      "price": "2000",
       "rentType": "1",
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg",
       "people": "10",
@@ -298,24 +298,24 @@
     },
     {
       "id": 6,
-      "name": "Hồ Thị Thanh Tâm ",
-      "gender": "0",
-      "dateOfBirth": "2003-12-13",
-      "cmnd": "011101454",
-      "phone": "0905222111",
-      "email": "mbv@gmail.com",
-      "customerType": "5",
-      "address": "123 Lê Duẩn"
-    },
-    {
       "name": "Lê Văn Phát Đạt",
       "gender": "1",
-      "dateOfBirth": "2023-04-13",
-      "cmnd": "303031662",
-      "phone": "0903333111",
-      "email": "qwerty@gmail.com",
+      "dateOfBirth": "1999-07-01",
+      "cmnd": "201233322",
+      "phone": "0909112112",
+      "email": "abc@gmail.com",
       "customerType": "2",
-      "address": "123 Hoàng Sa",
+      "address": "650 Âu Cơ"
+    },
+    {
+      "name": "Nguyễn Lê Anh Quân",
+      "gender": "1",
+      "dateOfBirth": "2023-03-27",
+      "cmnd": "201202343",
+      "phone": "0903333111",
+      "email": "abc@gmail.com",
+      "customerType": "2",
+      "address": "123 Lê Bổng",
       "id": 7
     }
   ],
@@ -403,13 +403,13 @@
       "id": 10
     },
     {
-      "contractCode": "SV-1435",
-      "customerInfo": 1,
-      "facilityInfo": 1,
-      "dateStart": "2023-03-28",
-      "dateEnd": "2023-04-29",
-      "price": "3000",
-      "totalPrice": "50000",
+      "contractCode": "SV-0009",
+      "customerInfo": "3",
+      "facilityInfo": "9",
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-05-07",
+      "price": "700",
+      "totalPrice": "20000",
       "id": 11
     }
   ]

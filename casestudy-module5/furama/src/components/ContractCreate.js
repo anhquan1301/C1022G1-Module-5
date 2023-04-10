@@ -13,7 +13,7 @@ export default function ContractCreate() {
     const [facilitiesList, setFacilitiesList] = useState([])
     useEffect(() => {
         const getFacilitiesList = async () => {
-            const rs = await facilitiesLists.findAll('')
+            const rs = await facilitiesLists.getTotalPages()
             setFacilitiesList(rs)
         }
         getFacilitiesList()
@@ -22,7 +22,7 @@ export default function ContractCreate() {
     const [customerList, setCustomerList] = useState([])
     useEffect(() => {
         const getCustomerList = async () => {
-            const rs = await customer.findByName('')
+            const rs = await customer.getTotalPage()
             setCustomerList(rs)
         }
         getCustomerList()
@@ -31,8 +31,8 @@ export default function ContractCreate() {
         <>
             <Formik initialValues={{
                 contractCode: '',
-                customerInfo: 1,
-                facilityInfo: 1,
+                customerInfo: customerList[0]?.name,
+                facilityInfo: facilitiesList[0]?.name,
                 dateStart: '',
                 dateEnd: '',
                 price: '',
