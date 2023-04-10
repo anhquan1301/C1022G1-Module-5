@@ -4,13 +4,15 @@ import { DELETE_USER, GET_ALL_USERS, SHOW_USER } from "../action/types";
 const initialState = []
 
 export const usersReducer = (user = initialState,action)=>{
-    const {type, payload} = action;
-
+    const {type,payload} = action;
     switch(type){
         case GET_ALL_USERS:
             return payload
         case DELETE_USER:
-            return [...payload]
+            console.log(user);
+            console.log(payload);
+               return user.filter((users)=>(users.id!==payload))
+               
             default:
                 return user
     }

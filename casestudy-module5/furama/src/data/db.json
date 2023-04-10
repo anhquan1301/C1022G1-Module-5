@@ -5,7 +5,7 @@
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
-      "rentType": "Tháng",
+      "rentType": 1,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg",
       "people": "4",
       "facilitiesType": 1,
@@ -23,18 +23,18 @@
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
-      "people": "4",
-      "rentType": "Tháng",
+      "rentType": 2,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg",
-      "facilitiesType": 2,
+      "people": "4",
+      "facilitiesType": 1,
       "standard": null,
       "description": null,
       "poolarea": null,
       "numberFloors": null,
       "serviceFree": "massage",
       "facilityService": [
-        2,
-        4
+        "1",
+        "2"
       ]
     },
     {
@@ -42,18 +42,19 @@
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
-      "people": "4",
-      "rentType": "Tháng",
+      "rentType": 1,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg",
-      "facilitiesType": 3,
+      "people": "4",
+      "facilitiesType": 1,
       "standard": null,
       "description": null,
       "poolarea": null,
       "numberFloors": null,
       "serviceFree": "massage",
       "facilityService": [
-        2,
-        4
+        "3",
+        "4",
+        "5"
       ]
     },
     {
@@ -61,28 +62,9 @@
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
-      "people": "4",
-      "rentType": "Tháng",
+      "rentType": 2,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Suite-Feature-768x497.jpg",
-      "facilitiesType": 2,
-      "standard": null,
-      "description": null,
-      "poolarea": null,
-      "numberFloors": null,
-      "serviceFree": "massage",
-      "facilityService": [
-        1,
-        2
-      ]
-    },
-    {
-      "id": 6,
-      "name": "PHÒNG SUITE HƯỚNG BIỂN",
-      "area": "85.8m2",
-      "price": "2000",
       "people": "4",
-      "rentType": "Tháng",
-      "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Ocean-Studio-Suite-F-768x497.jpg",
       "facilitiesType": 1,
       "standard": null,
       "description": null,
@@ -99,9 +81,9 @@
       "name": "PHÒNG SUITE HƯỚNG BIỂN",
       "area": "85.8m2",
       "price": "2000",
-      "people": "4",
-      "rentType": "Tháng",
+      "rentType": 2,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/03/Furama_Ocean_Deluxe-2-768x496.jpg",
+      "people": "4",
       "facilitiesType": 1,
       "standard": null,
       "description": null,
@@ -118,28 +100,9 @@
       "name": "BIỆT THỰ HƯỚNG BIỂN CÓ HỒ BƠI RIÊNG",
       "area": "85.8m2",
       "price": "2000",
-      "people": "4",
-      "rentType": "Tháng",
+      "rentType": 1,
       "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F.jpg",
-      "facilitiesType": 1,
-      "standard": 1,
-      "description": "abc",
-      "poolarea": "30m2",
-      "numberFloors": "2",
-      "serviceFree": null,
-      "facilityService": [
-        2,
-        4
-      ]
-    },
-    {
-      "id": 9,
-      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
-      "area": "85.8m2",
-      "price": "2000",
       "people": "4",
-      "rentType": "Tháng",
-      "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas.jpg",
       "facilitiesType": 2,
       "standard": 1,
       "description": "abc",
@@ -147,8 +110,29 @@
       "numberFloors": "2",
       "serviceFree": null,
       "facilityService": [
-        2,
-        3
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
+      "area": "85.8m2",
+      "price": "2000",
+      "rentType": "2",
+      "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas.jpg",
+      "people": "4",
+      "facilitiesType": 2,
+      "standard": 1,
+      "description": "abc",
+      "poolarea": "30m2",
+      "numberFloors": "2",
+      "serviceFree": null,
+      "facilityService": [
+        "1",
+        "2",
+        "3"
       ]
     },
     {
@@ -165,6 +149,26 @@
       "poolarea": null,
       "numberFloors": null,
       "serviceFree": "Massage",
+      "facilityService": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": 13,
+      "name": "CĂN HỘ ARIYANA",
+      "area": "100m2",
+      "price": "2000",
+      "rentType": "2",
+      "img": "https://file4.batdongsan.com.vn/resize/745x510/2019/10/01/20191001164854-ce98_wm.jpg",
+      "people": "4",
+      "facilitiesType": 3,
+      "standard": "2",
+      "description": "Đầy đủ tiện nghi",
+      "poolarea": null,
+      "numberFloors": "15",
+      "serviceFree": "",
       "facilityService": [
         "1",
         "2",
@@ -240,8 +244,8 @@
     {
       "id": 1,
       "name": "Nguyễn Lê Anh Quân",
-      "dateOfBirth": "13-01-2000",
       "gender": "1",
+      "dateOfBirth": "2000-01-13",
       "cmnd": "201322211",
       "phone": "0909999999",
       "email": "abc123@gmail.com",
@@ -251,112 +255,68 @@
     {
       "id": 2,
       "name": "Hà Nguyễn Thanh Phong",
-      "dateOfBirth": "13-01-2000",
       "gender": "1",
+      "dateOfBirth": "1998-07-29",
       "cmnd": "201322211",
-      "phone": "0909999999",
+      "phone": "0909888888",
       "email": "abc123@gmail.com",
       "customerType": 1,
       "address": "253 Nguyễn Hoàng"
     },
     {
       "id": 3,
-      "name": "Nguyễn Lê Anh Quân",
-      "dateOfBirth": "13-01-2000",
+      "name": "Dương Minh Trường",
       "gender": "1",
-      "cmnd": "201322211",
-      "phone": "0909999999",
-      "email": "abc123@gmail.com",
-      "customerType": 2,
-      "address": "253 Nguyễn Hoàng"
-    },
-    {
-      "id": 4,
-      "name": "Nguyễn Lê abc",
-      "gender": "0",
       "dateOfBirth": "2023-04-20",
       "cmnd": "201322211",
-      "phone": "0909999999",
+      "phone": "0909777777",
       "email": "abc123@gmail.com",
       "customerType": "4",
       "address": "253 Nguyễn Hoàng"
     },
     {
-      "id": 5,
-      "name": "Nguyễn Lê Anh Quân",
-      "dateOfBirth": "13-01-2000",
+      "id": 4,
+      "name": "Lê Đức Nghĩa",
       "gender": "1",
+      "dateOfBirth": "1994-07-22",
       "cmnd": "201322211",
       "phone": "0909999999",
       "email": "abc123@gmail.com",
       "customerType": 1,
-      "address": "253 Nguyễn Hoàng"
+      "address": "253 Trần Cao Vân"
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Thanh Tú",
+      "gender": "1",
+      "dateOfBirth": "2023-04-20",
+      "cmnd": "345543345",
+      "phone": "0901111345",
+      "email": "abc@gmail.com",
+      "customerType": "4",
+      "address": "50 Hoàng Diệu"
     },
     {
       "id": 6,
-      "name": "Nguyễn Lê Anh Quân",
-      "dateOfBirth": "13-01-2000",
-      "gender": "1",
-      "cmnd": "201322211",
-      "phone": "0909999999",
-      "email": "abc123@gmail.com",
-      "customerType": 2,
-      "address": "253 Nguyễn Hoàng"
-    },
-    {
-      "name": "Phong",
-      "gender": "1",
-      "dateOfBirth": "2023-04-27",
-      "cmnd": "423423234",
-      "phone": "0901111111",
-      "email": "quannla123@gmail.com",
-      "customerType": 1,
-      "address": "123 HD",
-      "id": 7
-    },
-    {
-      "name": "Nguyễn Lê Anh Quân",
-      "gender": "1",
-      "dateOfBirth": "2023-04-19",
-      "cmnd": "123123123",
-      "phone": "0901111111",
-      "email": "quannla123@gmail.com",
-      "customerType": 2,
-      "address": "123 HD",
-      "id": 8
-    },
-    {
-      "id": 9,
-      "name": "Nguyễn Lê ",
-      "gender": "1",
-      "dateOfBirth": "2023-04-28",
-      "cmnd": "123123123",
-      "phone": "0901111134",
-      "email": "quannla123@gmail.com",
-      "customerType": "2",
-      "address": "123 HD"
-    },
-    {
-      "name": "Nguyễn Lê Anh Quân",
-      "gender": "1",
-      "dateOfBirth": "2023-03-31",
-      "cmnd": "234234546",
-      "phone": "0901111111",
-      "email": "quannla123@gmail.com",
-      "customerType": 1,
-      "address": "dfgfg",
-      "id": 10
-    },
-    {
-      "id": 11,
-      "name": "Nguyễn Lê Anh Quân",
+      "name": "Hồ Thị Thanh Tâm ",
       "gender": "0",
-      "dateOfBirth": "2023-04-27",
-      "cmnd": "123123112",
-      "phone": "0901111111",
-      "email": "abc@gmail.com",
-      "customerType": "3",
-      "address": "dgdhd"
+      "dateOfBirth": "2003-12-13",
+      "cmnd": "011101454",
+      "phone": "0905222111",
+      "email": "mbv@gmail.com",
+      "customerType": "5",
+      "address": "123 Lê Duẩn"
+    },
+    {
+      "name": "Lê Văn Phát Đạt",
+      "gender": "1",
+      "dateOfBirth": "2023-04-13",
+      "cmnd": "303031662",
+      "phone": "0903333111",
+      "email": "qwerty@gmail.com",
+      "customerType": "2",
+      "address": "123 Hoàng Sa",
+      "id": 7
     }
   ],
   "customerTypeList": [
@@ -421,6 +381,36 @@
       "dateEnd": "13-01-2023",
       "price": "2000",
       "totalPrice": "10000"
+    },
+    {
+      "contractCode": "SV-4567",
+      "customerInfo": 1,
+      "facilityInfo": 1,
+      "dateStart": "2023-04-06",
+      "dateEnd": "2023-04-30",
+      "price": "200",
+      "totalPrice": "2000",
+      "id": 5
+    },
+    {
+      "contractCode": "SV-1231",
+      "customerInfo": "2",
+      "facilityInfo": 1,
+      "dateStart": "2023-03-28",
+      "dateEnd": "2023-04-28",
+      "price": "700",
+      "totalPrice": "20000",
+      "id": 10
+    },
+    {
+      "contractCode": "SV-1435",
+      "customerInfo": 1,
+      "facilityInfo": 1,
+      "dateStart": "2023-03-28",
+      "dateEnd": "2023-04-29",
+      "price": "3000",
+      "totalPrice": "50000",
+      "id": 11
     }
   ]
 }

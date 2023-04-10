@@ -9,16 +9,50 @@ import { Oval } from "react-loader-spinner";
 
 
 export default function FacilityEdit() {
-    const [facilitiesType, setFacilitiesType] = useState([])
-    useEffect(() => {
-        const getfacilitiesType = async () => {
-            const rs = await facilitiesService.getFacilitiesType()
-            setFacilitiesType(rs)
-        }
-        getfacilitiesType()
-    }, [])
 
+    
+    
+    const [facilitiesType, setFacilitiesType] = useState([])
     const [facilityStandard, setFacilityStandard] = useState([])
+    const [facilityRentType, setFacilityRentType] = useState([])
+    const [facilityService, setFacilityService] = useState([])
+    const [detail, setDetail] = useState()
+    const [facility, setFacility] = useState()
+    const params = useParams();
+
+
+    // const getfacilityDetail = async () => {
+    //     const rs = await facilitiesService.findById(param.id)
+    //     setDetail(rs)
+    //     setFacility(rs.)
+    // }
+    // getfacilityDetail()
+
+
+    useEffect(()=>{
+    const getfacilityService = async () => {
+        const rs = await facilitiesService.getFacilityService()
+        setFacilityService(rs)
+    }
+    getfacilityService()
+    },[])
+    useEffect(() => {
+        const fetchAll = async () => {
+            const [facilityTypesData, facilityDetail] =  await Promise.all(
+                [
+                    facilitiesService.getFacilitiesType(),
+                    facilitiesService.findById(params.id)
+                ]
+            );
+
+            setFacilitiesType(facilityTypesData)
+            setDetail(facilityDetail)
+            setFacility(facilityTypesData.filter(ft => ft.id === facilityDetail.facilitiesType)[0]?.name);
+        }
+        fetchAll();  
+    }, [params.id])
+
+    
     useEffect(() => {
         const getfacilityStandard = async () => {
             const rs = await facilitiesService.getFacilitiesStandard()
@@ -28,7 +62,7 @@ export default function FacilityEdit() {
     }, [])
 
 
-    const [facilityRentType, setFacilityRentType] = useState([])
+    
     useEffect(() => {
         const getfacilityRentType = async () => {
             const rs = await facilitiesService.getFacilitiesRentType()
@@ -36,36 +70,17 @@ export default function FacilityEdit() {
         }
         getfacilityRentType()
     }, [])
-
-    const [facilityService, setFacilityService] = useState([])
-    useEffect(() => {
-        const getfacilityService = async () => {
-            const rs = await facilitiesService.getFacilityService()
-            setFacilityService(rs)
-        }
-        getfacilityService()
-    }, [])
-
-    let param = useParams()
-
-    const [detail, setDetail] = useState()
-    useEffect(() => {
-        const getfacilityDetail = async () => {
-            const rs = await facilitiesService.findById(param.id)
-            setDetail(rs)
-        }
-        getfacilityDetail()
-    }, [])
-
-    const [facility, setFacility] = useState('Phòng')
+    
+    
     let navigate = useNavigate()
 
+    if(!facilitiesType){
+        return null
+    }
 
     if(!detail){
         return null
     }
-
-
     return (
 
         <>
@@ -95,17 +110,17 @@ export default function FacilityEdit() {
                         price: Yup.string().required('Không được bỏ trống'),
                         img: Yup.string().required('Không được bỏ trống'),
                         people: Yup.string().required('Không được bỏ trống'),
-                        // description: Yup.string().required('Không được bỏ trống'),
-                        // poolarea: Yup.string().required('Không được bỏ trống'),
-                        // numberFloors: Yup.string().required('Không được bỏ trống'),
-                        // serviceFree: Yup.string().required('Không được bỏ trống'),
+                        description: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        poolarea: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống'),
+                        numberFloors: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        serviceFree: facility=='Phòng' && Yup.string().required('Không được bỏ trống'),
                     }
                 )}
                 onSubmit={(value, { setSubmitting }) => {
                     const edit = async () => {
                         await facilitiesService.update(value)
                         setSubmitting(false)
-                        toast("Thêm mới thành công")
+                        toast("Chỉnh Sửa Thành Công")
                         navigate('/facility-list')
                     }
                     edit()
@@ -140,6 +155,31 @@ export default function FacilityEdit() {
                                         <h2 className="text-center fw-bold mt-3">Chỉnh Sửa Thông Tin Căn Hộ</h2>
                                     </div>
                                     }
+                                    
+                                    <div className="dropdown text-center mt-3" style={{ paddingRight: 410 }}>
+                                        <button
+                                            className="btn btn-secondary dropdown-toggle"
+                                            type="button"
+                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                        >
+                                            {facility}
+                                        </button>
+                                        <ul className="dropdown-menu" name="facilitiesType">
+                                            {
+                                                facilitiesType.map((facilities, index) => (
+                                                    <li key={index} name="facilitiesType">
+                                                        <a name="facilitiesType" value={facilities.id} className="dropdown-item" onClick={() => {
+                                                            setFacility(facilities.name)
+                                                        }}>
+                                                            {facilities.name}
+                                                        </a>
+                                                    </li>
+                                                )
+                                                )
+                                            }
+                                        </ul>
+                                    </div>
                                     <div className="d-flex justify-content-center mt-3">
                                         <table className="" style={{ width: 500 }}>
                                             <tbody>
@@ -162,6 +202,25 @@ export default function FacilityEdit() {
                                                     <th></th>
                                                     <ErrorMessage name="name" className="text-danger" component="span" />
                                                 </tr>
+                                                {/* <tr style={{ height: 60 }}>
+                                                    <th>
+                                                        <label className="fs-5" htmlFor="">
+                                                            Loại dịch vụ:
+                                                        </label>
+                                                    </th>
+                                                    <td>
+                                                        <Field component="select" name="facilitiesType" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                            {
+                                                                facilitiesType.map((facilitiesTypes) => (
+                                                                    <option  key={facilitiesTypes.id} value={facilitiesTypes.id}>{facilitiesTypes.name}<a onClick={() => {
+                                                                        setFacility(facilitiesTypes.name)
+                                                                    }}></a></option>
+                                                                ))
+                                                                
+                                                            }
+                                                        </Field>
+                                                    </td>
+                                                </tr> */}
                                                 <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">
@@ -231,22 +290,7 @@ export default function FacilityEdit() {
                                                                 facilityRentType.map((facilityRentTypes) => (
                                                                     <option key={facilityRentTypes.id} value={facilityRentTypes.id}>{facilityRentTypes.name}</option>
                                                                 ))
-                                                            }
-                                                        </Field>
-                                                    </td>
-                                                </tr>
-                                                <tr style={{ height: 60 }}>
-                                                    <th>
-                                                        <label className="fs-5" htmlFor="">
-                                                            Loại phòng:
-                                                        </label>
-                                                    </th>
-                                                    <td>
-                                                        <Field component="select" name="rentType" className="form-select" id="floatingSelect" aria-label="Floating label select example">
-                                                            {
-                                                                facilitiesType.map((facilities) => (
-                                                                    <option key={facilities.id} value={facilities.id}>{facilities.name}</option>
-                                                                ))
+                                                                
                                                             }
                                                         </Field>
                                                     </td>

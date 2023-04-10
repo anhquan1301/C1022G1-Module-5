@@ -78,10 +78,10 @@ export default function FacilityCreate() {
                         price: Yup.string().required('Không được bỏ trống'),
                         img: Yup.string().required('Không được bỏ trống'),
                         people: Yup.string().required('Không được bỏ trống'),
-                        // description: Yup.string().required('Không được bỏ trống'),
-                        // poolarea: Yup.string().required('Không được bỏ trống'),
-                        // numberFloors: Yup.string().required('Không được bỏ trống'),
-                        // serviceFree: Yup.string().required('Không được bỏ trống'),
+                        description: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        poolarea: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống'),
+                        numberFloors: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        serviceFree: facility=='Phòng' && Yup.string().required('Không được bỏ trống'),
                     }
                 )}
                 onSubmit={(value, { setSubmitting }) => {

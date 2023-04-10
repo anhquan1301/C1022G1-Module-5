@@ -1,12 +1,19 @@
 import axios from "axios";
-export const findByName = async(value)=>{
-    console.log(value)
+export const findByName = async(value,currentPage)=>{
     try {
-        return (await axios.get(`http://localhost:8080/customerList?name_like=${value}`)).data
+        return (await axios.get(`http://localhost:8080/customerList?name_like=${value}&_page=${currentPage}&_limit=3`)).data
     } catch (error) {
         console.log(error);
     }
 }
+export const getTotalPage = async()=>{
+    try {
+        return (await axios.get(`http://localhost:8080/customerList`)).data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const save = async(customer)=>{
     try {
         await axios.post(`http://localhost:8080/customerList`,{ ...customer })
@@ -25,6 +32,14 @@ export const update = async(customer)=>{
 export const findById = async(id)=>{
     try {
         return (await axios.get(`http://localhost:8080/customerList/${id}`)).data
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const remove = async(id)=>{
+    try {
+         await axios.delete(`http://localhost:8080/customerList/${id}`)
     } catch (error) {
         console.log(error);
     }

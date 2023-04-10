@@ -20,7 +20,7 @@ export const deleteUser = (id) => async(dispatch) => {
         console.log(res)
         dispatch({
             type:DELETE_USER,
-            payload:res.data
+            payload:id
         })
     } catch (error) {
         console.log(error)

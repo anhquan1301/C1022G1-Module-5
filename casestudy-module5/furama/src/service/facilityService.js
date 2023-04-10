@@ -1,12 +1,18 @@
 import axios from 'axios';
-export const findAll = async() =>{
+export const findAll = async(value,currentPage,limit) =>{
     try {
-        return (await axios.get('http://localhost:8080/facilitiesList')).data
+        return (await axios.get(`http://localhost:8080/facilitiesList?name_like=${value}&_page=${currentPage}&_limit=6`)).data
     } catch (error) {
         console.log(error)
     }
 }
-
+export const getTotalPages = async() =>{
+    try {
+        return (await axios.get(`http://localhost:8080/facilitiesList`)).data
+    } catch (error) {
+        console.log(error)
+    }
+}
 export const save = async(facility)=>{
     try {
         await axios.post('http://localhost:8080/facilitiesList',{ ...facility })
@@ -29,6 +35,15 @@ export const update = async(facility)=>{
         
     }
 }
+
+export const remove = async(id) =>{
+    try {
+         await axios.delete(`http://localhost:8080/facilitiesList/${id}`)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 export const getFacilitiesType = async() =>{
     try {
         return (await axios.get('http://localhost:8080/facilitiesType')).data

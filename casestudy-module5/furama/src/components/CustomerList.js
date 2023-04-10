@@ -1,26 +1,53 @@
 import { NavLink } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import * as customerList from '../service/customerService'
 import { useEffect, useState } from "react";
+import ModalDeleteCustomer from "./ModalDeleteCustomer";
+import ReactPaginate from "react-paginate";
+
 export default function CustomerList() {
   const [customerTypeList, setCustomerTypeList] = useState([])
-  useEffect(()=>{
-    const fetchApi = async()=>{
+  let[count, setCount] = useState(1)
+  useEffect(() => {
+    const fetchApi = async () => {
       const rs = await customerList.customerTypeList()
       setCustomerTypeList(rs)
     }
     fetchApi()
-  },[])
+  }, [])
+
+  
+
   const [customers, setCustomers] = useState([])
-  useEffect(()=>{
-    const fetchApi = async()=>{
-      const rs = await customerList.findByName("")
-      setCustomers(rs)
-    }
-    fetchApi()
-  },[])
-  let stt = 1
+  const findAll = async () => {
+    const rs = await customerList.findByName("",1)
+    setCustomers(rs)
+    const dt = await customerList.getTotalPage()
+    let total = Math.ceil(dt.length/3)
+    setPageCount(total)
+  }
+
+  useEffect(() => {
+    findAll()
+  }, [])
+
+  const [deleteId, setDeleteId] = useState(0)
+  const [deleteName, setDeleteName] = useState("")
+  const getPropsCustomer = (id, name) => {
+    setDeleteId(id)
+    setDeleteName(name)
+  }
+
+  const [pageCount,setPageCount] = useState(0)
+
+  const handlePageClick = async(page)=>{
+    let currentPage = page.selected+1
+        const rs = await customerList.findByName('',currentPage)
+        setCustomers(rs)
+        setCount(currentPage*3-2)
+  }
+  
   return (
     <>
       <div className="row mx-0" style={{ marginTop: 96 }}>
@@ -36,38 +63,45 @@ export default function CustomerList() {
           Danh Sách Tất Cả Các Khách Hàng
         </h2>
       </div>
-      <div>
+      <div className="row-0 px-0 ">
+      <div className="col-6 float-start">
         <NavLink className="ms-5 btn btn-dark" to='/customer-create'>Thêm Khách Hàng Mới</NavLink>
       </div>
-      <div>
+      <div className="col-6 float-start">
         <Formik initialValues={{
-          name:""
+          name: ""
         }}
-         onSubmit={(value)=>{
-            const search = async()=>{
+          onSubmit={(value) => {
+            const search = async () => {
               const rs = await customerList.findByName(value.name)
-              if(rs==""){
-                document.getElementById("empty").innerHTML=`Không Tìm Thấy Tên ${value.name}`
-              }else{
-                document.getElementById("empty").innerHTML=``
+              if (rs == "") {
+                document.getElementById("empty").innerHTML = `Không Tìm Thấy Tên ${value.name}`
+              } else {
+                document.getElementById("empty").innerHTML = ``
               }
               setCustomers(rs)
             }
             search()
-         }}
+          }}
         >
-          
           <Form>
-            <div className="form-group">
+            <div className="form-group float-end w-75" style={{
+             paddingLeft:80
+            }}>
               <Field type="text"
-                className="form-control" name="name" aria-describedby="helpId" placeholder="Tìm kiếm" />
-                <button type="submit" className="btn btn-primary">Submit</button>
+                className="form-control d-inline float-start me-3 rounded-pill" style={{
+                  width: 300
+                }} name="name" aria-describedby="helpId" placeholder="Tìm kiếm..." />
+              <button type="submit" className="btn btn-secondary float-start rounded-pill">Tìm kiếm</button>
             </div>
           </Form>
         </Formik>
       </div>
+
+      </div>
+      
       <div className="row mx-0 mt-3 px-5 py-1">
-        <table className="table table-striped" style={customers=='' ?  { display : 'none'} : {} }>
+        <table className="table table-striped" style={customers == '' ? { display: 'none' } : {}}>
           <thead>
             <tr>
               <th>STT</th>
@@ -83,33 +117,75 @@ export default function CustomerList() {
               <th />
             </tr>
           </thead>
-          
+
           <tbody>
             {
               customers.map((customer, index) => (
                 <tr key={index}>
-                  <td scope="row">{stt++}</td>
+                  <td scope="row">{count++}</td>
                   <td>{customer.name}</td>
                   <td>{customer.dateOfBirth}</td>
-                  <td>{customer.gender == 1 ? 'Nam' : customer.gender==0 ? 'Nữ' : 'LGBT'}</td>
+                  <td>{customer.gender == 1 ? 'Nam' : customer.gender == 0 ? 'Nữ' : 'LGBT'}</td>
                   <td>{customer.cmnd}</td>
                   <td>{customer.phone}</td>
                   <td>{customer.email}</td>
-                  <td>{customerTypeList.filter(customerId=>(
-                    customerId.id==customer.customerType
-                    ))[0].name}</td>
+                  <td>{customerTypeList.filter(customerId => (
+                    customerId.id == customer.customerType
+                  ))[0]?.name}</td>
                   <td>{customer.address}</td>
                   <td>
-                    <NavLink className="btn btn-primary" to={`/customer-edit/${customer.id}`}>Chỉnh sửa</NavLink>
+                    <NavLink className="btn btn-primary" to={`/customer-edit/${customer.id}`}><i className="ti-pencil-alt" /></NavLink>
                   </td>
                   <td>
-                    <button>Xóa</button>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      data-bs-toggle="modal"
+                      data-bs-target="#exampleModal"
+                      onClick={() => getPropsCustomer(customer.id, customer.name)}
+                    >
+                      <i className="ti-trash" />
+                    </button>
                   </td>
                 </tr>
               ))
             }
           </tbody>
         </table>
+        <ReactPaginate
+        previousLabel={'Trước'}
+        nextLabel={'Sau'}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        containerClassName="pagination"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        nextClassName="page-item"
+        nextLinkClassName="page-link"
+        previousClassName="page-item"
+        previousLinkClassName="page-link"
+        activeClassName="active"
+        />
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark" />
+        <ModalDeleteCustomer
+          id={deleteId}
+          name={deleteName}
+          getList={
+            () => {
+              findAll()
+            }
+          }
+        />
         <div><h4 id="empty" className="text-danger text-center"></h4></div>
       </div>
     </>

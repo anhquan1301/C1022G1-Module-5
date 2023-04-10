@@ -11,6 +11,7 @@ import CustomerCreate from './components/CustomerCreate';
 import ContractCreate from './components/ContractCreate';
 import CustomerEdit from './components/CustomerEdit';
 import FacilityEdit from './components/FacilityEdit';
+import Detail from './components/Detail';
 function App() {
   return (
     <>  
@@ -21,6 +22,7 @@ function App() {
             <Route path='/facility-list' element={<FacilityList />}  />
             <Route path='/customer-list' element={<CustomerList />}  />
             <Route path='/contract-list' element={<ContractList />}  />
+            <Route path='/facility-detail/:id' element={<Detail />}  />
             <Route path='/facility-create' element={<FacilityCreate />}  />
             <Route path='/facility-edit/:id' element={<FacilityEdit />}  />
             <Route path='/customer-create' element={<CustomerCreate />}  />
