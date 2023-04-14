@@ -1,18 +1,20 @@
-import logo from './logo.svg';
+
 import './App.css';
-import BookList from './components/BookList';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import BookCreate from './components/BookCreate';
-import BookEdit from './components/BookEdit';
+import StudentList from './components/components/student/StudentList';
+import StudentCreate from './components/components/student/StudentCreate';
+import StudentEdit from './components/components/student/StudentEdit';
+
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/' element={<BookList />}/>
-      <Route path='/create' element={<BookCreate />}/>
-      <Route path='/update/:id' element={<BookEdit />}/>
+      <Route path='/' element={<StudentList />}/>
+      <Route path='/create' element={<StudentCreate />}/>
+      <Route path='/edit/:id' element={<StudentEdit />}/>
     </Routes>
     </BrowserRouter>
    

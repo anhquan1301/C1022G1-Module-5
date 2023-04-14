@@ -24,7 +24,7 @@ export default function CustomerList() {
     const rs = await customerList.findByName("",1)
     setCustomers(rs)
     const dt = await customerList.getTotalPage()
-    let total = Math.ceil(dt.length/3)
+    let total = Math.ceil(dt.length/5)
     setPageCount(total)
   }
 
@@ -45,7 +45,7 @@ export default function CustomerList() {
     let currentPage = page.selected+1
         const rs = await customerList.findByName('',currentPage)
         setCustomers(rs)
-        setCount(currentPage*3-2)
+        setCount(currentPage*5-4)
   }
   
   return (
@@ -89,9 +89,10 @@ export default function CustomerList() {
             <div className="form-group float-end w-75" style={{
              paddingLeft:80
             }}>
-              <Field type="text"
+              <i className="ti-search ti-search1" /><Field type="text"
                 className="form-control d-inline float-start me-3 rounded-pill" style={{
-                  width: 250
+                  width: 250,
+                  paddingLeft:35
                 }} name="name" aria-describedby="helpId" placeholder="Tìm kiếm..." />
               <button type="submit" className="btn btn-secondary float-start rounded-pill">Tìm kiếm</button>
             </div>
@@ -177,7 +178,11 @@ export default function CustomerList() {
           draggable
           pauseOnHover
           theme="dark" />
-        <ModalDeleteCustomer
+        
+        <div><h4 id="empty" className="text-danger text-center"></h4></div>
+      </div>
+      </div>
+      <ModalDeleteCustomer
           id={deleteId}
           name={deleteName}
           getList={
@@ -186,9 +191,6 @@ export default function CustomerList() {
             }
           }
         />
-        <div><h4 id="empty" className="text-danger text-center"></h4></div>
-      </div>
-      </div>
     </>
   )
 }

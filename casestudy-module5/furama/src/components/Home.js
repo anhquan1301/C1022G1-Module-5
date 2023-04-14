@@ -1,3 +1,5 @@
+
+
 export default function Home() {
     return (
         <>
@@ -87,6 +89,7 @@ export default function Home() {
                     </button>
                 </div>
             </div>
+            <div className="row mx-0 px-0 container">
             <div className="row mx-0 mt-5 mb-5 ms-5">
                 <div className="col-4">
                     <h3 style={{ color: "#cbbe73", marginTop: 70 }}>
@@ -96,7 +99,7 @@ export default function Home() {
                 </div>
                 <div className="col-4">
                     <img
-                        className="w-100 h-100 "
+                        className="w-100 h-100 shadow"
                         src="https://file4.batdongsan.com.vn/2020/04/24/hmcVYWuR/20200424143929-0bb9.jpg"
                         alt=""
                     />
@@ -116,6 +119,43 @@ export default function Home() {
                 </div>
             </div>
 
+            <div className="row mx-0">
+                
+                <div className="row container mx-0 px-5 mt-3">
+                    <div className="col-6">
+                        <img className="w-100 h-100 shadow" src="https://furamavietnam.com/wp-content/uploads/2018/07/CULIRARY.jpg" />
+                    </div>
+                    <div className="col-6 mt-2">
+                    <h2 style={{ color: "#cbbe73", textAlign: "center" }}>ẨM THỰC</h2>
+                        <h5 style={{
+                            lineHeight: 2,
+                            paddingTop: 30
+                        }}>
+                            Trải nghiệm ẩm thực tại Khu nghỉ có sự pha trộn độc đáo các món ăn truyền thống Việt Nam với nhiều những hương vị ẩm thực châu Á
+                            , Ý và châu Âu cùng các món bò nhập khẩu thượng hạng tại đa dạng các nhà hàng, quầy bar đẳng cấp được bao quanh bởi một khu vườn nhiệt đới hay hướng mình ra biển, đón những hơi thở mát mẻ thổi về từ biển đông...
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="row mx-0 mt-5">
+                <div className="row container mx-0 px-5 mt-5">
+                    <div className="col-6 mt-2">
+                    <h2 style={{ color: "#cbbe73", textAlign: "center" }}>GIẢI TRÍ</h2>
+                        <h5 style={{
+                            lineHeight: 2,
+                            paddingTop: 30
+                        }}>
+                           Biến kỳ nghỉ dưỡng năng động hơn bằng cách tham gia các hoạt động thể thao trên nước từ chèo thuyền catamaran, lướt ván buồm, chèo thuyền trên biển, lướt vát, đi xe đạp nước, trượt nước, lướt ván, chuối, dù lượn và đa dạng các hoạt động.
+                        </h5>
+                    </div>
+                    <div className="col-6">
+                        <img className="w-100 h-100 shadow" src="https://furamavietnam.com/wp-content/uploads/2018/07/RECREATION.jpg" />
+                    </div>
+                </div>
+
+            </div>
+            </div>
         </>
     )
 }

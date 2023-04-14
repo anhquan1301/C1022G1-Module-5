@@ -46,7 +46,7 @@ export default function FacilityEdit() {
             );
             setFacilitiesType(facilityTypesData)
             setDetail(facilityDetail)
-            setFacility(facilityTypesData.filter(ft => ft.id === facilityDetail.facilitiesType)[0]?.name);
+            setFacility(facilityTypesData.filter(ft => ft.id == facilityDetail.facilitiesType)[0]?.name);
         }
         fetchAll();
     }, [params.id])
@@ -99,16 +99,15 @@ export default function FacilityEdit() {
                 serviceFree: detail?.serviceFree,
                 facilityService: detail?.facilityService
             }}
-
                 validationSchema={Yup.object(
                     {
-                        name: Yup.string().required('Không được bỏ trống'),
-                        area: Yup.string().required('Không được bỏ trống'),
-                        price: Yup.string().required('Không được bỏ trống'),
+                        name: Yup.string().required('Không được bỏ trống').matches(/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/,'Tên phải đúng định dạng VD: BIỆT THỰ...'),
+                        area: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Diệt tích phải là số nguyên dương'),
+                        price: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số tiền phải là số nguyên dương'),
                         img: Yup.string().required('Không được bỏ trống'),
-                        people: Yup.string().required('Không được bỏ trống'),
+                        people: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số lượng người là số nguyên dương'),
                         description: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống') || facility == 'Căn hộ' && Yup.string().required('Không được bỏ trống'),
-                        poolarea: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống'),
+                        poolarea: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số tầng phải là số nguyên dương'),
                         numberFloors: facility == 'Biệt thự' && Yup.string().required('Không được bỏ trống') || facility == 'Căn hộ' && Yup.string().required('Không được bỏ trống'),
                         serviceFree: facility == 'Phòng' && Yup.string().required('Không được bỏ trống'),
                     }
@@ -201,7 +200,7 @@ export default function FacilityEdit() {
                                                         <ErrorMessage name="name" className="text-danger" component="span" />
                                                     </td>
                                                 </tr>
-                                                {/* <tr style={{ height: 60 }}>
+                                                <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">
                                                             Loại dịch vụ:
@@ -211,15 +210,13 @@ export default function FacilityEdit() {
                                                         <Field component="select" name="facilitiesType" className="form-select" id="floatingSelect" aria-label="Floating label select example">
                                                             {
                                                                 facilitiesType.map((facilitiesTypes) => (
-                                                                    <option  key={facilitiesTypes.id} value={facilitiesTypes.id}>{facilitiesTypes.name}<a onClick={() => {
-                                                                        setFacility(facilitiesTypes.name)
-                                                                    }}></a></option>
+                                                                    <option  key={facilitiesTypes.id} value={facilitiesTypes.id}>{facilitiesTypes.name}</option>
                                                                 ))
                                                                 
                                                             }
                                                         </Field>
                                                     </td>
-                                                </tr> */}
+                                                </tr>
                                                 <tr style={{ height: 60 }}>
                                                     <th>
                                                         <label className="fs-5" htmlFor="">

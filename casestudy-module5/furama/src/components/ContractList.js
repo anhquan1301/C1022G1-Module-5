@@ -24,7 +24,7 @@ export default function ContractList() {
     const showListContract = async () => {
         const rs = await contractsList.findByName("",1)
         let pages = await contractsList.getTotalPages()
-        let total = Math.ceil(pages.length/3)
+        let total = Math.ceil(pages.length/5)
         setPageCount(total)
         setContracList(rs)
     }
@@ -61,7 +61,7 @@ export default function ContractList() {
 
     const handlePageClick = async(page)=>{
         let currentPage = page.selected +1
-        setCount(currentPage*3-2)
+        setCount(currentPage*5-4)
         const rs = await contractsList.findByName('',currentPage)
         setContracList(rs)
     }
@@ -72,7 +72,7 @@ export default function ContractList() {
                 <img
                     className="img-fluid px-0"
                     style={{ height: 400 }}
-                    src="https://cdn.azvd.asia/images/furama/draf1-2.jpg"
+                    src="https://cafebatdongsan.com.vn/uploads/image/images/furama-ariyana-condotel-da-nang.jpg"
                     alt=""
                 />
             </div>
@@ -106,9 +106,10 @@ export default function ContractList() {
                             <div className="form-group float-end w-75" style={{
                                 paddingLeft: 80
                             }}>
-                                <Field type="text"
+                                <i className='ti-search ti-search2' /><Field type="text"
                                     className="form-control d-inline float-start me-3 rounded-pill" style={{
-                                        width: 230
+                                        width: 230,
+                                        paddingLeft:30
                                     }} name="contractCode" aria-describedby="helpId" placeholder="Tìm kiếm..." />
                                 <button type="submit" className="btn btn-secondary float-start rounded-pill">Tìm kiếm</button>
                             </div>
@@ -187,16 +188,17 @@ export default function ContractList() {
                     pauseOnHover
                     theme="dark"
                 />
-                <ModalDeleteContract 
+                
+                <div><h4 id="empty" className="text-danger text-center"></h4></div>
+            </div>
+            </div>
+            <ModalDeleteContract 
                 id={idDelete}
                 name={nameDelete}
                 getList={()=>{
                     showListContract()
                 }}
                 />
-                <div><h4 id="empty" className="text-danger text-center"></h4></div>
-            </div>
-            </div>
         </>
     )
 }

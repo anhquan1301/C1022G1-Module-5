@@ -233,3 +233,16 @@
   text-decoration: none;
   color: rgb(223, 235, 235);
 }
+
+.ti-search1{
+  font-weight: bold;
+  position: relative;
+  right: 345px;
+  top: 9px;
+}
+.ti-search2{
+  font-weight: bold;
+  position: relative;
+  right: 325px;
+  top: 9px;
+}

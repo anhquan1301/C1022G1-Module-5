@@ -10,7 +10,12 @@ import { Oval } from "react-loader-spinner";
 
 
 export default function FacilityCreate() {
-    const [facilitiesType, setFacilitiesType] = useState([])
+    const [facilitiesType, setFacilitiesType] = useState()
+    const [facilityService, setFacilityService] = useState([])
+    const [facilityStandard, setFacilityStandard] = useState([])
+    const [facilityRentType, setFacilityRentType] = useState()
+    const [facility, setFacility] = useState('Phòng')
+    let navigate = useNavigate()
     useEffect(() => {
         const getfacilitiesType = async () => {
             const rs = await facilitiesService.getFacilitiesType()
@@ -18,8 +23,6 @@ export default function FacilityCreate() {
         }
         getfacilitiesType()
     }, [])
-
-    const [facilityStandard, setFacilityStandard] = useState([])
     useEffect(() => {
         const getfacilityStandard = async () => {
             const rs = await facilitiesService.getFacilitiesStandard()
@@ -27,9 +30,6 @@ export default function FacilityCreate() {
         }
         getfacilityStandard()
     }, [])
-
-
-    const [facilityRentType, setFacilityRentType] = useState([])
     useEffect(() => {
         const getfacilityRentType = async () => {
             const rs = await facilitiesService.getFacilitiesRentType()
@@ -38,7 +38,6 @@ export default function FacilityCreate() {
         getfacilityRentType()
     }, [])
 
-    const [facilityService, setFacilityService] = useState([])
     useEffect(() => {
         const getfacilityService = async () => {
             const rs = await facilitiesService.getFacilityService()
@@ -46,10 +45,12 @@ export default function FacilityCreate() {
         }
         getfacilityService()
     }, [])
-
-
-    const [facility, setFacility] = useState('Phòng')
-    let navigate = useNavigate()
+    if(!facilitiesType){
+        return null
+    }
+    if(!facilityRentType){
+        return null
+    }
     return (
 
         <>
@@ -57,10 +58,10 @@ export default function FacilityCreate() {
                 name: '',
                 area: '',
                 price: '',
-                rentType: 1,
+                rentType: facilityRentType[0]?.id,
                 img: '',
                 people:'',
-                facilitiesType: 1,
+                facilitiesType: facilitiesType[0]?.id,
                 standard: null,
                 description: null,
                 poolarea: null,
@@ -71,14 +72,14 @@ export default function FacilityCreate() {
 
                 validationSchema={Yup.object(
                     {
-                        name: Yup.string().required('Không được bỏ trống'),
-                        area: Yup.string().required('Không được bỏ trống'),
-                        price: Yup.string().required('Không được bỏ trống'),
+                        name: Yup.string().required('Không được bỏ trống').matches(/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/,'Tên phải đúng định dạng VD: BIỆT THỰ...'),
+                        area: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Diệt tích phải là số nguyên dương'),
+                        price: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số tiền phải là số nguyên dương'),
                         img: Yup.string().required('Không được bỏ trống'),
-                        people: Yup.string().required('Không được bỏ trống'),
+                        people: Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số lượng người là số nguyên dương'),
                         description: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
-                        poolarea: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống'),
-                        numberFloors: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống'),
+                        poolarea: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Số tầng phải là số nguyên dương'),
+                        numberFloors: facility=='Biệt thự' && Yup.string().required('Không được bỏ trống') || facility=='Căn hộ' && Yup.string().required('Không được bỏ trống').matches(/^[1-9]\d*$/,'Diệt tích phải là số nguyên dương'),
                         serviceFree: facility=='Phòng' && Yup.string().required('Không được bỏ trống'),
                     }
                 )}
@@ -100,7 +101,7 @@ export default function FacilityCreate() {
                                 style={{ marginTop: 96, backgroundColor: "rgb(232, 235, 219)" }}>
                                 <div className="col-5">
                                     {
-                                    facility === 'Phòng' 
+                                    facility == 'Phòng' 
                                     &&  
                                     <div>
                                         <h2 className="text-center fw-bold mt-3" >Thêm Phòng Mới</h2>
@@ -167,6 +168,23 @@ export default function FacilityCreate() {
                                                 <tr>
                                                     <th></th>
                                                     <ErrorMessage name="name" className="text-danger" component="span" />
+                                                </tr>
+                                                 <tr style={{ height: 60 }}>
+                                                    <th>
+                                                        <label className="fs-5" htmlFor="">
+                                                            Loại dịch vụ:
+                                                        </label>
+                                                    </th>
+                                                    <td>
+                                                        <Field component="select" name="facilitiesType" className="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                            {
+                                                                facilitiesType.map((facilitiesTypes) => (
+                                                                    <option   key={facilitiesTypes.id} value={facilitiesTypes.id}>{facilitiesTypes.name}</option>
+                                                                ))
+                                                                
+                                                            }
+                                                        </Field>
+                                                    </td>
                                                 </tr>
                                                 <tr style={{ height: 60 }}>
                                                     <th>

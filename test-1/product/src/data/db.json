@@ -1,0 +1,100 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Asus Zenbook",
+      "price": "3000",
+      "productType": 1
+    },
+    {
+      "id": 2,
+      "name": "Iphone 14",
+      "price": "1500",
+      "productType": 2
+    },
+    {
+      "id": 3,
+      "name": "Ipad pro",
+      "price": "2000",
+      "productType": 3
+    },
+    {
+      "name": "Iphone11",
+      "price": "123",
+      "productType": 1,
+      "id": 5
+    }
+  ],
+  "productType": [
+    {
+      "id": 1,
+      "name": "Laptop"
+    },
+    {
+      "id": 2,
+      "name": "Smart Phone"
+    },
+    {
+      "id": 3,
+      "name": "Tablet"
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A",
+      "age": "18",
+      "email": "abc@gmail.com",
+      "customerType": 1
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn B",
+      "age": "18",
+      "email": "abc@gmail.com",
+      "customerType": 2
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Văn C",
+      "age": "18",
+      "email": "abc@gmail.com",
+      "customerType": 3
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Văn D",
+      "age": "18",
+      "email": "abc@gmail.com",
+      "customerType": 1
+    },
+    {
+      "id": 5,
+      "name": "Nguyễn Lê Anh Quân123",
+      "age": "20",
+      "email": "abc@gmail.com",
+      "customerType": 3
+    },
+    {
+      "name": "Nguyễn Lê ",
+      "age": "15",
+      "email": "abc@gmail.com",
+      "customerType": 1,
+      "id": 6
+    }
+  ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 3,
+      "name": "Silver"
+    }
+  ]
+}

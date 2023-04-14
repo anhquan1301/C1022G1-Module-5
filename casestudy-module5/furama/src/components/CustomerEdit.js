@@ -27,7 +27,7 @@ export default function CustomerEdit() {
       setDetail(rs)
     }
     fetchApi()
-  },[])
+  },[param.id])
 
   if(!detail){
     return null
@@ -56,7 +56,7 @@ export default function CustomerEdit() {
           edit()
         }}
         validationSchema={Yup.object({
-          name: Yup.string().required('Không được bỏ trống'),
+          name: Yup.string().required('Không được bỏ trống').matches(/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/,'Tên phải đúng định dạng VD: Nguyễn Văn A'),
           gender: Yup.string().required('Không được bỏ trống'),
           dateOfBirth: Yup.string().required('Không được bỏ trống'),
           cmnd: Yup.string().required('Không được bỏ trống')
@@ -97,7 +97,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="name" className="text-danger" component="span" />
+                            <th><ErrorMessage name="name" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -146,7 +146,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="gender" className="text-danger" component="span" />
+                            <th><ErrorMessage name="gender" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -165,7 +165,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="dateOfBirth" className="text-danger" component="span" />
+                            <th><ErrorMessage name="dateOfBirth" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -184,7 +184,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="cmnd" className="text-danger" component="span" />
+                            <th><ErrorMessage name="cmnd" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -203,7 +203,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="phone" className="text-danger" component="span" />
+                            <th><ErrorMessage name="phone" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -222,7 +222,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="email" className="text-danger" component="span" />
+                            <th><ErrorMessage name="email" className="text-danger" component="span" /></th>
                             </tr>
                           <tr style={{ height: 60 }}>
                             <th>
@@ -261,7 +261,7 @@ export default function CustomerEdit() {
                           </tr>
                           <tr>
                             <th></th>
-                            <ErrorMessage name="address" className="text-danger" component="span" />
+                            <th><ErrorMessage name="address" className="text-danger" component="span" /></th>
                             </tr>
                           {
                             isSubmitting ? <Oval

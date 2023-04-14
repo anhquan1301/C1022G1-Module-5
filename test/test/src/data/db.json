@@ -15,5 +15,57 @@
       "quantity": "23423423423423423",
       "id": 15
     }
+  ],
+  "student": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn A",
+      "score": "9.5",
+      "className": 1
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Văn B",
+      "score": "8.5",
+      "className": 2
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Văn C",
+      "score": "10",
+      "className": 3
+    },
+    {
+      "name": "Nguyễn Lê Anh Quân",
+      "score": "10",
+      "className": "2",
+      "id": 4
+    },
+    {
+      "name": "Nguyễn Lê Anh Quân",
+      "score": "9.9",
+      "className": 1,
+      "id": 8
+    },
+    {
+      "id": 15,
+      "name": "Nguyễn Lê Anh Quân",
+      "score": "10",
+      "className": "1"
+    }
+  ],
+  "class": [
+    {
+      "id": 1,
+      "name": "C1022G1"
+    },
+    {
+      "id": 2,
+      "name": "C1122G1"
+    },
+    {
+      "id": 3,
+      "name": "C1222G1"
+    }
   ]
 }

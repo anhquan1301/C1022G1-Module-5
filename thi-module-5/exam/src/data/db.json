@@ -1,0 +1,110 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "code": "BO-0001",
+      "name": "Ngày trở về",
+      "bookType": 1,
+      "date": "2023-01-01",
+      "quantity": 5
+    },
+    {
+      "id": 2,
+      "code": "BO-0002",
+      "name": "Naruto",
+      "bookType": 3,
+      "date": "2023-01-01",
+      "quantity": 3
+    },
+    {
+      "id": 3,
+      "code": "BO-0003",
+      "name": "Bóng người dưới trăng",
+      "bookType": 4,
+      "date": "2023-01-01",
+      "quantity": 9
+    },
+    {
+      "id": 4,
+      "code": "BO-0004",
+      "name": "Conan",
+      "bookType": 3,
+      "date": "2023-01-01",
+      "quantity": 10
+    },
+    {
+      "code": "BO-1234",
+      "name": "Nguyễn Lê Anh Quân",
+      "bookType": 2,
+      "date": "2023-04-04",
+      "quantity": 5,
+      "id": 5
+    },
+    {
+      "code": "BO-0010",
+      "name": "One Piece",
+      "bookType": 3,
+      "date": "2023-04-19",
+      "quantity": 4,
+      "id": 6
+    },
+    {
+      "code": "BO-1234",
+      "name": "Nguyễn Lê Anh Quân",
+      "bookType": 1,
+      "date": "2023-04-11",
+      "quantity": 5,
+      "id": 7
+    },
+    {
+      "code": "BO-7689",
+      "name": "Phong",
+      "bookType": 4,
+      "date": "2023-04-04",
+      "quantity": 4,
+      "id": 8
+    },
+    {
+      "code": "BO-3453",
+      "name": "Abc",
+      "bookType": 2,
+      "date": "2023-04-29",
+      "quantity": 7,
+      "id": 9
+    },
+    {
+      "code": "BO-0987",
+      "name": "dfdg",
+      "bookType": 3,
+      "date": "2023-04-03",
+      "quantity": 10,
+      "id": 10
+    },
+    {
+      "code": "BO-7666",
+      "name": "qqq",
+      "bookType": 2,
+      "date": "2023-04-04",
+      "quantity": "5",
+      "id": 11
+    }
+  ],
+  "bookType": [
+    {
+      "id": 1,
+      "name": "Tiểu thuyết"
+    },
+    {
+      "id": 2,
+      "name": "Tình yêu"
+    },
+    {
+      "id": 3,
+      "name": "Truyện tranh"
+    },
+    {
+      "id": 4,
+      "name": "Truyện ma"
+    }
+  ]
+}

@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const findByName = async(value,currentPage)=>{   
     try {
-        return (await axios.get(`http://localhost:8080/contractList?contractCode_like=${value}&_page=${currentPage}&_limit=3&_sort=id&_order=desc`)).data
+        return (await axios.get(`http://localhost:8080/contractList?contractCode_like=${value}&_page=${currentPage}&_limit=5&_sort=id&_order=desc`)).data
     } catch (error) {
         console.log(error);
     }

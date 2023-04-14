@@ -11,7 +11,7 @@ import { useEffect, useState } from "react";
   
 export default function CustomerCreate() {
   let navigate = useNavigate()
-  const [customerTypeList, setCustomerTypeList] = useState([])
+  const [customerTypeList, setCustomerTypeList] = useState()
   useEffect(()=>{
     const fetchApi = async()=>{
       const rs = await customerList.customerTypeList()
@@ -19,7 +19,9 @@ export default function CustomerCreate() {
     }
     fetchApi()
   },[])
-
+  if(!customerTypeList){
+    return null
+  }
   return (
     <>
       <Formik initialValues={{
@@ -29,7 +31,7 @@ export default function CustomerCreate() {
         cmnd: '',
         phone: '',
         email: '',
-        customerType: customerTypeList[0]?.name,
+        customerType: customerTypeList[0]?.id,
         address: ''
       }}
         onSubmit={(values, { setSubmitting }) => {
@@ -42,7 +44,7 @@ export default function CustomerCreate() {
           create()
         }}
         validationSchema={Yup.object({
-          name: Yup.string().required('Không được bỏ trống'),
+          name: Yup.string().required('Không được bỏ trống').matches(/^([a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]+)$/,'Tên phải đúng định dạng VD: Nguyễn Văn A'),
           gender: Yup.string().required('Không được bỏ trống'),
           dateOfBirth: Yup.string().required('Không được bỏ trống'),
           cmnd: Yup.string().required('Không được bỏ trống')

@@ -1,23 +1,40 @@
 
-import { Field, Form, Formik } from 'formik'
-import * as bookList from '../service/bookService'
-import { useNavigate } from 'react-router-dom'
-export default function BookCreate() {
+import { Field, Form, Formik } from "formik"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+import * as bookList from '../../../service/bookService'
+
+export default function BookEdit() {
     let navigate = useNavigate()
+    let param = useParams()
+    const [bookDetail, setBookDetail] = useState()
+    useEffect(() => {
+        const fetchApi = async () => {
+            const detail = await bookList.findById(param.id)
+            setBookDetail(detail)
+        }
+        fetchApi()
+    }, [])
+    console.log(bookDetail)
+    if(!bookDetail){
+        return null
+    }
     return (
         <>
-            <h2>Create Book</h2>
+            <h2>Edit Book</h2>
             <Formik initialValues={{
-                title:'',
-                quantity:''
+                id: bookDetail?.id,
+                title: bookDetail?.title,
+                quantity: bookDetail?.quantity
             }}
-            onSubmit={ (values) =>{
-                 bookList.save(values)
-                 alert("Thành công")
+                onSubmit={(values) => {
+                    bookList.update(values)
+                    alert("Thành công")
                     navigate("/")
-            }}
+                }}
             >
                 <Form>
+                    <Field type='hidden' name='id' />
                     <div className="form-group">
                         <label htmlFor="title">Title</label>
                         <Field type="text"

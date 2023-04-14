@@ -32,7 +32,6 @@ export default function Detail() {
         }
         getStandard()
     }, [])
-    let i = 0;
     let param = useParams()
 
     useEffect(() => {
@@ -41,7 +40,7 @@ export default function Detail() {
             setDetail(rs)
         }
         detailShow()
-    }, [])
+    }, [param.id])
 
     return (
         <>

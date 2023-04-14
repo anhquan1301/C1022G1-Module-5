@@ -10,7 +10,8 @@ import { Oval } from 'react-loader-spinner';
 export default function ContractCreate() {
 
     let navigate = useNavigate()
-    const [facilitiesList, setFacilitiesList] = useState([])
+    const [facilitiesList, setFacilitiesList] = useState()
+    const [customerList, setCustomerList] = useState()
     useEffect(() => {
         const getFacilitiesList = async () => {
             const rs = await facilitiesLists.getTotalPages()
@@ -19,7 +20,6 @@ export default function ContractCreate() {
         getFacilitiesList()
     }, [])
 
-    const [customerList, setCustomerList] = useState([])
     useEffect(() => {
         const getCustomerList = async () => {
             const rs = await customer.getTotalPage()
@@ -27,17 +27,26 @@ export default function ContractCreate() {
         }
         getCustomerList()
     }, [])
+    if(!facilitiesList){
+        return null
+    }
+    if(!customerList){
+        return null
+    }
     return (
-        <>
+        <>{console.log(facilitiesList[0]?.id)}
             <Formik initialValues={{
                 contractCode: '',
-                customerInfo: customerList[0]?.name,
-                facilityInfo: facilitiesList[0]?.name,
+                customerInfo: customerList[0]?.id,
+                facilityInfo: facilitiesList[0]?.id,
                 dateStart: '',
                 dateEnd: '',
                 price: '',
                 totalPrice: ''
-            }}
+            } 
+        }
+        
+            
                 validationSchema={Yup.object(
                     {
                         contractCode: Yup.string().required('Không được bỏ trống').matches(/^SV-[0-9]{4}$/,'MHĐ phải đúng định dạng VD: SV-XXXX (X là chữ số)'),
@@ -87,7 +96,7 @@ export default function ContractCreate() {
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <ErrorMessage name="contractCode" className="text-danger" component="span" />
+                                                <th><ErrorMessage name="contractCode" className="text-danger" component="span" /></th>
                                             </tr>
                                             <tr style={{ height: 60 }}>
                                                 <th>
@@ -142,7 +151,7 @@ export default function ContractCreate() {
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <ErrorMessage name="dateStart" className="text-danger" component="span" />
+                                                <th><ErrorMessage name="dateStart" className="text-danger" component="span" /></th>
                                             </tr>
                                             <tr style={{ height: 60 }}>
                                                 <th>
@@ -161,7 +170,7 @@ export default function ContractCreate() {
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <ErrorMessage name="dateEnd" className="text-danger" component="span" />
+                                                <th><ErrorMessage name="dateEnd" className="text-danger" component="span" /></th>
                                             </tr>
                                             <tr style={{ height: 60 }}>
                                                 <th>
@@ -180,7 +189,7 @@ export default function ContractCreate() {
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <ErrorMessage name="price" className="text-danger" component="span" />
+                                                <th><ErrorMessage name="price" className="text-danger" component="span" /></th>
                                             </tr>
                                             <tr style={{ height: 60 }}>
                                                 <th>
@@ -199,7 +208,7 @@ export default function ContractCreate() {
                                             </tr>
                                             <tr>
                                                 <th></th>
-                                                <ErrorMessage name="totalPrice" className="text-danger" component="span" />
+                                                <th><ErrorMessage name="totalPrice" className="text-danger" component="span" /></th>
                                             </tr>
                                             {
                                                 isSubmitting ? <Oval

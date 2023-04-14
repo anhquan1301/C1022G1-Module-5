@@ -20,7 +20,7 @@
     },
     {
       "id": 2,
-      "name": "PHÒNG SUITE HƯỚNG BIỂN",
+      "name": "PHÒNG SUITE HƯỚNG VƯỜN",
       "area": "85.8m2",
       "price": "2000",
       "rentType": 2,
@@ -117,27 +117,26 @@
     },
     {
       "id": 9,
-      "name": "BIỆT THỰ HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
-      "area": "85.8m2",
+      "name": "PHÒNG HƯỚNG VƯỜN CÓ HỒ BƠI RIÊNG",
+      "area": "85",
       "price": "2000",
       "rentType": "2",
       "img": "https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas.jpg",
       "people": "4",
-      "facilitiesType": 2,
+      "facilitiesType": "1",
       "standard": 1,
       "description": "abc",
       "poolarea": "30m2",
       "numberFloors": "2",
-      "serviceFree": null,
+      "serviceFree": "Massage",
       "facilityService": [
-        "1",
         "2",
         "3"
       ]
     },
     {
       "id": 10,
-      "name": "PHÒNG DELUXE HƯỚNG BIỂN",
+      "name": "PHÒNG STUDIO HƯỚNG BIỂN",
       "area": "100m2",
       "price": "2000",
       "rentType": "1",
@@ -306,17 +305,6 @@
       "email": "abc@gmail.com",
       "customerType": "2",
       "address": "650 Âu Cơ"
-    },
-    {
-      "name": "Nguyễn Lê Anh Quân",
-      "gender": "1",
-      "dateOfBirth": "2023-03-27",
-      "cmnd": "201202343",
-      "phone": "0903333111",
-      "email": "abc@gmail.com",
-      "customerType": "2",
-      "address": "123 Lê Bổng",
-      "id": 7
     }
   ],
   "customerTypeList": [
@@ -403,14 +391,64 @@
       "id": 10
     },
     {
-      "contractCode": "SV-0009",
+      "contractCode": "SV-3423",
       "customerInfo": "3",
-      "facilityInfo": "9",
+      "facilityInfo": "13",
       "dateStart": "2023-03-27",
-      "dateEnd": "2023-05-07",
+      "dateEnd": "2023-04-30",
       "price": "700",
       "totalPrice": "20000",
       "id": 11
+    },
+    {
+      "contractCode": "SV-6666",
+      "customerInfo": "4",
+      "facilityInfo": "10",
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-04-29",
+      "price": "7000",
+      "totalPrice": "50000",
+      "id": 12
+    },
+    {
+      "contractCode": "SV-0987",
+      "customerInfo": "6",
+      "facilityInfo": "5",
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-04-30",
+      "price": "1000",
+      "totalPrice": "25000",
+      "id": 13
+    },
+    {
+      "contractCode": "SV-1234",
+      "customerInfo": "2",
+      "facilityInfo": "10",
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-05-07",
+      "price": "2000",
+      "totalPrice": "50000",
+      "id": 14
+    },
+    {
+      "contractCode": "SV-0005",
+      "customerInfo": 1,
+      "facilityInfo": 1,
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-05-05",
+      "price": "2000",
+      "totalPrice": "88888",
+      "id": 16
+    },
+    {
+      "contractCode": "SV-8766",
+      "customerInfo": "2",
+      "facilityInfo": "7",
+      "dateStart": "2023-03-27",
+      "dateEnd": "2023-04-22",
+      "price": "123",
+      "totalPrice": "44444",
+      "id": 17
     }
   ]
 }

@@ -1,4 +1,4 @@
-import * as bookList from '../service/bookService'
+import * as bookList from '../../../service/bookService'
 export default function ModalDelete(props) {
     const handleDelete=(id)=>{
         // bookList.remove(id).then(()=> {
