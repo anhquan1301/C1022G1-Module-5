@@ -43,7 +43,7 @@ export default function BookCreate(){
                     })}
                     onSubmit={(value)=>{
                         const create = async()=>{
-                            await bookService.save({
+                          const rs = await bookService.save({
                                 ...value,
                                 bookTypeDTO: {
                                     id : +value.bookTypeDTO.id

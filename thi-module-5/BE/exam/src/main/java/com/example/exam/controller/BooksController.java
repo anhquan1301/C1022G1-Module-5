@@ -15,6 +15,9 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,7 +33,24 @@ public class BooksController {
     public Page<Books> showListBook(@RequestParam(required = false, defaultValue = "")String name,
                                     @RequestParam(required = false,defaultValue = "")String bookType,
                                     @PageableDefault(size = 3) Pageable pageable){
-        return iBooksService.findByName(name,bookType,pageable);
+        Page<Books> booksPage = iBooksService.findByName(name,bookType,pageable);
+        for (Books book : booksPage.getContent()) {
+            SimpleDateFormat initialDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat newDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+            String importedDate = book.getDate();
+            String importedDateInNewFormat = "";
+            try {
+                Date date = initialDateFormat.parse(importedDate);
+                importedDateInNewFormat = newDateFormat.format(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            book.setDate(importedDateInNewFormat);
+        }
+
+        return booksPage;
+
+
     }
 
     @ResponseStatus(HttpStatus.OK)

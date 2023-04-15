@@ -46,9 +46,7 @@ export default function BookEdit(){
                         id:detail?.id,
                         code:detail?.code,
                         name:detail?.name,
-                        bookTypeDTO:{
-                            id : detail?.bookType.id
-                        },
+                        bookTypeDTO:detail?.bookType.id,
                         date:detail?.date,
                         quantity:detail?.quantity
                     }}
@@ -59,17 +57,17 @@ export default function BookEdit(){
                         quantity:Yup.number().required('Không được bỏ trống').min(1,'Số lượng phải lớn hơn 0')
                     })}
                     onSubmit={(value)=>{
-                        const create = async()=>{
+                        const edit = async()=>{
                             await bookService.edit({
                                 ...value,
                                 bookTypeDTO: {
-                                    id : +value.bookTypeDTO.id
+                                    id : +value.bookTypeDTO
                                 } 
                             })
                             alert("Chỉnh sửa thành công")
                             navigate('/')
                         }
-                        create()
+                        edit()
                     }}
                     >
                     <Form>

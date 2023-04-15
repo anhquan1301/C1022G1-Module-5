@@ -7,15 +7,17 @@ import ReactPaginate from 'react-paginate'
 export default function BookList() {
     const [showBookList, setShowBookList] = useState([])
     const [showBookTypeList, setShowBookTypeList] = useState([])
-    const [pageCount, setPageCount] = useState()
+    const [pageCount, setPageCount] = useState(0)
     let [count, setCount] = useState(1)
-    const [deleteId, setDeleteId] = useState()
-    const [deleteName, setDeleteName] = useState()
+    const [currentPage, setCurrentPage] = useState(0)
+    const [name, setName] = useState('');
+    const [bookTypeName, setBookTypeName] = useState('');
+    const [deleteId, setDeleteId] = useState(0)
+    const [deleteName, setDeleteName] = useState('')
     const showList = async () => {
-        const rs = await bookService.findByName('', '')
+        const rs = await bookService.findByName(name, bookTypeName)
         setShowBookList(rs.data.content)
         setPageCount(rs.data.totalPages)
-
     }
     const showBookType = async () => {
         const rs = await bookTypeService.findAll()
@@ -24,20 +26,19 @@ export default function BookList() {
     useEffect(() => {
         showList()
         showBookType()
-
     }, [])
     const handlePageClick = async (page) => {
-        const rs = await bookService.findByName('', '', page.selected)
+        setCurrentPage(page.selected)
+        const rs = await bookService.findByName(name, bookTypeName, page.selected)
         setShowBookList(rs.data.content)
         setCount(Math.ceil(rs.data.size * page.selected + 1))
-        console.log(rs.data);
     }
     const getId = (id, name) => {
         setDeleteId(id)
         setDeleteName(name)
     }
 
-    const handleDelete = async(id)=>{
+    const handleDelete = async (id) => {
         await bookService.remove(id)
         alert("Xóa thành công")
         showList()
@@ -52,48 +53,52 @@ export default function BookList() {
                 <Formik initialValues={{
                     name: '',
                     bookType: ''
-
                 }}
                     onSubmit={(value) => {
-                        console.log(value);
                         const showList = async () => {
+                            console.log(value.page);
                             const rs = await bookService.findByName(value.name, value.bookType)
-                            console.log(rs.data.content);
                             if (rs.data.content == '') {
                                 document.getElementById('nameSearch').innerHTML = 'Không tìm thấy tên ' + value.name
                             } else {
                                 document.getElementById('nameSearch').innerHTML = ''
                             }
+                            setCurrentPage(rs.data.number)
+                            setBookTypeName(value.bookType)
+                            setName(value.name)
+                            setPageCount(rs.data.totalPages)
                             setShowBookList(rs.data.content)
+                            setCount(Math.ceil(rs.data.size * rs.data.number + 1))
                         }
                         showList()
                     }}
                 >
                     <Form className='col-6'>
-                        <div class="form-group">
+                        <div className="form-group">
                             <Field type="text"
-                                class="form-control float-start w-50" name="name" placeholder="Tìm kiếm..." />
+                                className="form-control float-start w-50" name="name" placeholder="Tìm kiếm..." />
                         </div>
                         <Field as='select' name="bookType" id="bookType" className='' >
                             <option value='' >--Thể loại--</option>
                             {
                                 showBookTypeList.map((bookType, index) => (
-                                    <>
                                         <option key={index} value={bookType.id} >
                                             {bookType.name}
                                         </option>
-                                    </>
                                 ))
 
                             }
 
                         </Field>
                         <div>
-                            <button type="submit float-end" class="btn btn-primary">Tìm kiếm</button>
+                            <button type="submit float-end" className="btn btn-primary">Tìm kiếm</button>
                         </div>
                     </Form>
                 </Formik>
-                <table class="table table-striped">
+                {   
+                    showBookList != '' &&
+                    <>
+                    <table className="table table-striped">
                     <thead>
                         <tr>
                             <th>STT</th>
@@ -120,7 +125,7 @@ export default function BookList() {
                                         <NavLink className={'btn btn-primary'} to={`/edit/${book.id}`}>Chỉnh sửa</NavLink>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-danger" onClick={() => getId(book.id, book.name)} data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <button type="button" className="btn btn-danger" onClick={() => getId(book.id, book.name)} data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             Xóa
                                         </button>
                                     </td>
@@ -129,8 +134,8 @@ export default function BookList() {
                         }
                     </tbody>
                 </table>
-                <h2 id='nameSearch' className='text-danger text-center'></h2>
-                <ReactPaginate
+                <div className=' d-flex justify-content-center'>
+                <ReactPaginate 
                     previousLabel="Trước"
                     nextLabel="Sau"
                     pageCount={pageCount}
@@ -138,27 +143,33 @@ export default function BookList() {
                     containerClassName='pagination'
                     previousClassName='page-item'
                     previousLinkClassName='page-link'
-                    nextClassName='page-item'
+                    nextClassName= 'page-item'
                     nextLinkClassName='page-link'
                     pageClassName='page-item'
                     pageLinkClassName='page-link'
                     activeClassName='active'
                     activeLinkClassName='page-link'
+                    forcePage={currentPage}
                 />
+                </div>
+                
+                </>
+                }
+                <h2 id='nameSearch' className='text-danger text-center'></h2>
             </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
+                        <div className="modal-body">
                             Bạn có chắc chắn muốn xóa <span className='text-danger'>{deleteName}</span>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                            <button type="button" data-bs-dismiss="modal" onClick={()=>handleDelete(deleteId)} class="btn btn-primary">Xác nhận</button>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="button" data-bs-dismiss="modal" onClick={() => handleDelete(deleteId)} className="btn btn-primary">Xác nhận</button>
                         </div>
                     </div>
                 </div>
