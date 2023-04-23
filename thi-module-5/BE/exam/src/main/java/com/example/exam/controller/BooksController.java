@@ -2,7 +2,6 @@ package com.example.exam.controller;
 
 import com.example.exam.dto.BooksDTO;
 import com.example.exam.model.Books;
-import com.example.exam.service.IBookTypeService;
 import com.example.exam.service.IBooksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

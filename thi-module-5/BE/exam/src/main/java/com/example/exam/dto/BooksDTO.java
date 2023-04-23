@@ -3,6 +3,7 @@ package com.example.exam.dto;
 import com.example.exam.model.BookType;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
@@ -11,14 +12,17 @@ public class BooksDTO {
 
     private Integer id;
     @Pattern(regexp = "BO-[0-9]{4}$", message = "Mã sách có định dạng BO-XXXX (X là số)")
+    @NotBlank(message = "Không được bỏ trống")
     private String code;
+    @NotBlank(message = "Không được bỏ trống")
     @Size(max = 100, message = "Tên sách không dài quá 100 ký tự")
     private String name;
 
     private BookTypeDTO bookTypeDTO;
-
+    @NotBlank(message = "Không được bỏ trống")
     private String date;
     @Positive(message = "Số lượng sách phải là số nguyên dương")
+    @NotBlank(message = "Không được bỏ trống")
     private String quantity;
 
     public BooksDTO() {

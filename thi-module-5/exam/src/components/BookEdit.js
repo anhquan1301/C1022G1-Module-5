@@ -65,7 +65,7 @@ export default function BookEdit(){
                                 } 
                             })
                             alert("Chỉnh sửa thành công")
-                            navigate('/')
+                            navigate("/")
                         }
                         edit()
                     }}
@@ -84,7 +84,6 @@ export default function BookEdit(){
                         className="form-control" name="name" id="name" placeholder="" />
                     </div>
                     <ErrorMessage component='span' name="name" className='text-danger'/>
-
                     <div className="form-group">
                       <label htmlFor="bookType">Thể loại</label>
                       <Field as='select' name="bookTypeDTO" id="bookType" className='form-select' >

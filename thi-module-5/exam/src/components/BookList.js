@@ -4,6 +4,7 @@ import * as bookTypeService from '../service/bookTypeService'
 import { NavLink } from 'react-router-dom'
 import { Field, Form, Formik } from 'formik'
 import ReactPaginate from 'react-paginate'
+import BookEdit from './BookEdit'
 export default function BookList() {
     const [showBookList, setShowBookList] = useState([])
     const [showBookTypeList, setShowBookTypeList] = useState([])
@@ -15,7 +16,7 @@ export default function BookList() {
     const [deleteId, setDeleteId] = useState(0)
     const [deleteName, setDeleteName] = useState('')
     const showList = async () => {
-        const rs = await bookService.findByName(name, bookTypeName)
+        const rs = await bookService.findByName(name, bookTypeName, currentPage)
         setShowBookList(rs.data.content)
         setPageCount(rs.data.totalPages)
     }
@@ -52,12 +53,13 @@ export default function BookList() {
                 </div>
                 <Formik initialValues={{
                     name: '',
-                    bookType: ''
+                    bookType: '',
+                    pages: currentPage
                 }}
                     onSubmit={(value) => {
                         const showList = async () => {
                             console.log(value.page);
-                            const rs = await bookService.findByName(value.name, value.bookType)
+                            const rs = await bookService.findByName(value.name, value.bookType, value.pages)
                             if (rs.data.content == '') {
                                 document.getElementById('nameSearch').innerHTML = 'Không tìm thấy tên ' + value.name
                             } else {

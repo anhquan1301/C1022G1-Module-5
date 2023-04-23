@@ -10,11 +10,11 @@ export const findByName = (name,bookType,page)=>{
 
 
 export const save = (books)=>{
+    // console.log(books);
     try {
-        axios.post('http://localhost:8080/books',{ ...books })
+       return axios.post('http://localhost:8080/books',{ ...books })
     } catch (error) {
         console.log(error);
-        // return error
     }
 }
 export const findById = (id)=>{
